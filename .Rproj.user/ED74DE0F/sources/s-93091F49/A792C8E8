@@ -1,0 +1,25 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1601180580194.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "3962947959",
+    "id" : "A792C8E8",
+    "lastKnownWriteTime" : 1601180613,
+    "last_content_update" : 1601180613620,
+    "path" : "D:/R code/Rblogdown/myblog/content/post/2020-09-27-第二天继续探索.Rmd",
+    "project_path" : "content/post/2020-09-27-第二天继续探索.Rmd",
+    "properties" : {
+        "cursorPosition" : "9,55",
+        "scrollLine" : "0"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 6,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_markdown"
+}

@@ -1,0 +1,25 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1601180615677.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "2638920217",
+    "id" : "C50B318C",
+    "lastKnownWriteTime" : 1601180624,
+    "last_content_update" : 1601180624945,
+    "path" : "D:/R code/Rblogdown/myblog/content/post/2020-09-26-.Rmd",
+    "project_path" : "content/post/2020-09-26-.Rmd",
+    "properties" : {
+        "cursorPosition" : "10,94",
+        "scrollLine" : "0"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 7,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_markdown"
+}
