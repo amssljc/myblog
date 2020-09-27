@@ -4,6 +4,9 @@ date: "2020-9-27"
 title: 冷嘉承
 ---
 
-This Hugo theme was ported from [Ivy](https://github.com/dmulholland/ivy), a minimalist website generator built in Python. I don't have time to document this theme. You have to read the source code to understand what it can do. All I can say for now is that I love it. It is clean, minimal, and responsive.
-
-I hope you will enjoy this theme. The source code is [on Github](https://github.com/yihui/hugo-ivy). Happy hacking!
+男，中国科学院应用数学所在读博士一枚，主修运筹学。\
+修过的课程：\
+图论，组合优化，运筹学，高等数理统计，足球，深度学习等热门课程……\
+用过的语言（按照遗忘内容从少到多排序）：\
+R, Matlab, Python, Perl, Java, C, C++……\
+更新中……
