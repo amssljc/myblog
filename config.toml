@@ -31,7 +31,7 @@ footnotereturnlinkcontents = "↩"
 
 
 [params]
-    description = "A freshman of blogdown impressed by yh Xie:)"
+    description = "A freshman of blogdown affected by yh Xie:)"
     footer = "&copy; [Jiacheng Leng](https://jiachengleng.netlify.app/) 2020-2020 | [Github](https://github.com/amssljc) "
 
   highlightjsVersion = "9.12.0"
