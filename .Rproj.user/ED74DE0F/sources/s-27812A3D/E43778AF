@@ -5,14 +5,14 @@
     "dirty" : false,
     "encoding" : "UTF-8",
     "folds" : "",
-    "hash" : "0",
+    "hash" : "1214031097",
     "id" : "E43778AF",
-    "lastKnownWriteTime" : 1601180991,
-    "last_content_update" : 1601180991596,
+    "lastKnownWriteTime" : 1601181241,
+    "last_content_update" : 1601181241686,
     "path" : "D:/R code/Rblogdown/myblog/content/post/2020-09-26-.Rmd",
     "project_path" : "content/post/2020-09-26-.Rmd",
     "properties" : {
-        "cursorPosition" : "11,84",
+        "cursorPosition" : "12,35",
         "scrollLine" : "0"
     },
     "read_only" : false,
