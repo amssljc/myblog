@@ -5,15 +5,15 @@
     "dirty" : false,
     "encoding" : "UTF-8",
     "folds" : "",
-    "hash" : "0",
+    "hash" : "2854601969",
     "id" : "2C91EA7B",
-    "lastKnownWriteTime" : 1601128624,
-    "last_content_update" : 1601128624,
+    "lastKnownWriteTime" : 1601178425,
+    "last_content_update" : 1601178425806,
     "path" : "D:/R code/Rblogdown/myblog/config.toml",
     "project_path" : "config.toml",
     "properties" : {
-        "cursorPosition" : "25,14",
-        "scrollLine" : "3"
+        "cursorPosition" : "37,38",
+        "scrollLine" : "0"
     },
     "read_only" : false,
     "read_only_alternatives" : [

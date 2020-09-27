@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>菜鸟记录 on 冷嘉承</title>
+    <link>/categories/%E8%8F%9C%E9%B8%9F%E8%AE%B0%E5%BD%95/</link>
+    <description>Recent content in 菜鸟记录 on 冷嘉承</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 27 Sep 2020 00:00:00 +0000</lastBuildDate><atom:link href="/categories/%E8%8F%9C%E9%B8%9F%E8%AE%B0%E5%BD%95/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>第二天继续探索</title>
+      <link>/post/2020/09/27/%E7%AC%AC%E4%BA%8C%E5%A4%A9%E7%BB%A7%E7%BB%AD%E6%8E%A2%E7%B4%A2/</link>
+      <pubDate>Sun, 27 Sep 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2020/09/27/%E7%AC%AC%E4%BA%8C%E5%A4%A9%E7%BB%A7%E7%BB%AD%E6%8E%A2%E7%B4%A2/</guid>
+      <description>第二天目标：完成Netlify和github库的链接，实现自动上传本地文件。</description>
+    </item>
+    
+  </channel>
+</rss>

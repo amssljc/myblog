@@ -1,6 +1,6 @@
 baseurl = "/"
 languageCode = "en-us"
-title = "Hugo Ivy"
+title = "冷嘉承"
 theme = "hugo-ivy"
 googleAnalytics = ""
 disqusShortname = ""
@@ -28,13 +28,11 @@ footnotereturnlinkcontents = "↩"
     name = "Tags"
     url = "/tags/"
     weight = 4
-[[menu.main]]
-    name = "Subscribe"
-    url = "/index.xml"
+
 
 [params]
-    description = "A Hugo theme ported from the static site generator Ivy."
-    footer = "&copy; [Yihui Xie](https://yihui.name) 2017 | [Github](https://github.com/yihui) | [Twitter](https://twitter.com/xieyihui)"
+    description = "A freshman of blogdown impressed by yh Xie:)"
+    footer = "&copy; [Jiacheng Leng](https://jiachengleng.netlify.app/) 2020-2020 | [Github](https://github.com/amssljc) "
 
   highlightjsVersion = "9.12.0"
   highlightjsCDN = "//cdn.bootcss.com"
