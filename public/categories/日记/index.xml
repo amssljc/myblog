@@ -6,7 +6,43 @@
     <description>Recent content in 日记 on 冷嘉承</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 26 Sep 2020 00:00:00 +0000</lastBuildDate><atom:link href="/categories/%E6%97%A5%E8%AE%B0/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 01 Oct 2020 00:00:00 +0000</lastBuildDate><atom:link href="/categories/%E6%97%A5%E8%AE%B0/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>国庆快乐！！</title>
+      <link>/post/2020/10/01/%E5%9B%BD%E5%BA%86%E5%BF%AB%E4%B9%90/</link>
+      <pubDate>Thu, 01 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2020/10/01/%E5%9B%BD%E5%BA%86%E5%BF%AB%E4%B9%90/</guid>
+      <description>由于前几天忙着做讨论班的PPT，趁着国庆的尾巴，今天才有空学习一下Rmarkdown的语法。
+换行需要两个或者以上的空格
+左对齐
+如果需要另起一段，则需要按两次回车
+不仅如此，你还可以使用&amp;lt;br&amp;gt;
+来换行
+**双星号夹住**粗体
+句中的粗体。
+*单型号夹住*斜体
+***三个星号自然就是***粗斜体
+添加一个引用模块
+再加一个
+连起来
+加一行之后再加一个大于号，获得块中块
+Title添加项目编号再来一个总结
+有序列表
+吃
+烤鱼，火锅，麻辣烫
+喝
+玩
+乐
+无序列表
+国庆快乐吗？添加代码
+打开文件
+输入以下命令：
+if (I is &amp;#39;happy&amp;#39;){print(&amp;#39;I am happy&amp;#39;)}结束（4个Tab或者8个空格）
+添加图片
+第一步</description>
+    </item>
+    
     <item>
       <title>难受的一天？</title>
       <link>/post/2020/09/26/%E9%9A%BE%E5%8F%97%E7%9A%84%E4%B8%80%E5%A4%A9/</link>
