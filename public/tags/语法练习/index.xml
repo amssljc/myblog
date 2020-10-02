@@ -1,12 +1,32 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>日记 on 冷嘉承</title>
-    <link>/categories/%E6%97%A5%E8%AE%B0/</link>
-    <description>Recent content in 日记 on 冷嘉承</description>
+    <title>语法练习 on 冷嘉承</title>
+    <link>/tags/%E8%AF%AD%E6%B3%95%E7%BB%83%E4%B9%A0/</link>
+    <description>Recent content in 语法练习 on 冷嘉承</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 01 Oct 2020 00:00:00 +0000</lastBuildDate><atom:link href="/categories/%E6%97%A5%E8%AE%B0/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 02 Oct 2020 00:00:00 +0000</lastBuildDate><atom:link href="/tags/%E8%AF%AD%E6%B3%95%E7%BB%83%E4%B9%A0/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>基础语法加进阶语法</title>
+      <link>/post/2020/10/02/%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95%E5%8A%A0%E8%BF%9B%E9%98%B6%E8%AF%AD%E6%B3%95/</link>
+      <pubDate>Fri, 02 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2020/10/02/%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95%E5%8A%A0%E8%BF%9B%E9%98%B6%E8%AF%AD%E6%B3%95/</guid>
+      <description>print(&amp;#39;hello,blogdown!&amp;#39;)水平线1
+水平线2
+水平线3
+插入冷嘉承的链接。
+快速链接或者邮箱链接 
+https://jiachengleng.netlify.app or amssljc@163.com
+引用或者参考
+冷嘉承的个人主页
+冷嘉承的个人主页
+冷嘉承的个人主页
+冷嘉承的个人主页
+冷嘉承的个人主页</description>
+    </item>
+    
     <item>
       <title>国庆快乐！！</title>
       <link>/post/2020/10/01/%E5%9B%BD%E5%BA%86%E5%BF%AB%E4%B9%90/</link>
@@ -41,16 +61,6 @@
 if (I is &amp;#39;happy&amp;#39;){print(&amp;#39;I am happy&amp;#39;)}结束（4个Tab或者8个空格）
 添加图片
 第一步插入图片：元素无敌</description>
-    </item>
-    
-    <item>
-      <title>难受的一天？</title>
-      <link>/post/2020/09/26/%E9%9A%BE%E5%8F%97%E7%9A%84%E4%B8%80%E5%A4%A9/</link>
-      <pubDate>Sat, 26 Sep 2020 00:00:00 +0000</pubDate>
-      
-      <guid>/post/2020/09/26/%E9%9A%BE%E5%8F%97%E7%9A%84%E4%B8%80%E5%A4%A9/</guid>
-      <description>1.今天和前女友吃了饭，她把电纸书还给我了，看见她哭了，尽管看得出来她一直在克制，可是还是觉得难受。只是希望她能过得更好，找一个永远不会辜负她的人！
-2.听闻卓越奖学金一共选了12个人，我才感觉到原来学校这么有钱，原以为竞争激烈，没去报名，不过也罢，去了八成也是炮灰吧（尽管应用所只报了3个人，只有3个名额，可能我就是那个垫底的:)）。</description>
     </item>
     
   </channel>

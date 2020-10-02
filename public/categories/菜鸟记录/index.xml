@@ -6,7 +6,27 @@
     <description>Recent content in 菜鸟记录 on 冷嘉承</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 27 Sep 2020 00:00:00 +0000</lastBuildDate><atom:link href="/categories/%E8%8F%9C%E9%B8%9F%E8%AE%B0%E5%BD%95/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 02 Oct 2020 00:00:00 +0000</lastBuildDate><atom:link href="/categories/%E8%8F%9C%E9%B8%9F%E8%AE%B0%E5%BD%95/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>基础语法加进阶语法</title>
+      <link>/post/2020/10/02/%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95%E5%8A%A0%E8%BF%9B%E9%98%B6%E8%AF%AD%E6%B3%95/</link>
+      <pubDate>Fri, 02 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2020/10/02/%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95%E5%8A%A0%E8%BF%9B%E9%98%B6%E8%AF%AD%E6%B3%95/</guid>
+      <description>print(&amp;#39;hello,blogdown!&amp;#39;)水平线1
+水平线2
+水平线3
+插入冷嘉承的链接。
+快速链接或者邮箱链接 
+https://jiachengleng.netlify.app or amssljc@163.com
+引用或者参考
+冷嘉承的个人主页
+冷嘉承的个人主页
+冷嘉承的个人主页
+冷嘉承的个人主页
+冷嘉承的个人主页</description>
+    </item>
+    
     <item>
       <title>第二天继续探索</title>
       <link>/post/2020/09/27/%E7%AC%AC%E4%BA%8C%E5%A4%A9%E7%BB%A7%E7%BB%AD%E6%8E%A2%E7%B4%A2/</link>

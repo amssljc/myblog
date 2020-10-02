@@ -1,0 +1,49 @@
+---
+title: 基础语法加进阶语法
+author: Jiacheng Leng
+date: '2020-10-02'
+slug: 基础语法加进阶语法
+categories:
+  - 菜鸟记录
+tags: 
+  - 语法练习
+---
+    print('hello,blogdown!')
+    
+水平线1
+
+***
+
+水平线2
+
+---
+
+水平线3
+
+______________________________________________________
+
+插入[冷嘉承](https://jiachengleng.netlify.app "罗林海小可爱的男神")的链接。
+
+**快速链接或者邮箱链接 **   
+
+>*<https://jiachengleng.netlify.app>* or **<amssljc@163.com>**
+
+**引用或者参考**
+
+[冷嘉承的个人主页][1]  
+[冷嘉承的个人主页][2]  
+[冷嘉承的个人主页][3]  
+[冷嘉承的个人主页][4]  
+[冷嘉承的个人主页][5]    
+
+
+
+
+
+
+  
+[1]: https://jiachengleng.netlify.app
+[2]: https://jiachengleng.netlify.app
+[3]: https://jiachengleng.netlify.app
+[4]: https://jiachengleng.netlify.app
+[5]: https://jiachengleng.netlify.app
