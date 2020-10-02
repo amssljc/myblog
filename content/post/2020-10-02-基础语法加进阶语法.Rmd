@@ -10,6 +10,8 @@ tags:
 ---
     print('hello,blogdown!')
     
+    
+### 开始练习 {#totop}
 水平线1
 
 ***
@@ -28,22 +30,37 @@ ______________________________________________________
 
 >*<https://jiachengleng.netlify.app>* or **<amssljc@163.com>**
 
-**引用或者参考**
+**参考格式的链接**
 
 [冷嘉承的个人主页][1]  
-[冷嘉承的个人主页][2]  
-[冷嘉承的个人主页][3]  
-[冷嘉承的个人主页][4]  
-[冷嘉承的个人主页][5]    
+  
+利用20%代替链接中的空格
 
+![paper wall](/post/2020-10-02-基础语法加进阶语法_files/reinis-birznieks-lu5uhEAy2lI-unsplash.jpg 'what she likes'){width=50% height=50%}
 
+**表格**
 
+| 吃的吃的吃的吃的吃的吃的| 玩的玩的玩的玩的玩的玩的玩的 |
+| :---: | :---: |
+| 卤煮| 天坛       |
+| 火锅   | 故宫        |
 
+用[Markdown table generator](https://www.tablesgenerator.com/markdown_tables)更省事。
+
+```R
+if (i in 1:10){
+  print(paste0('I want', i, ' papers!'))
+}
+```
+
+**脚注**
+
+发文章太难了吧。[^1]
 
 
   
+  
+[转至开头](#totop) 
+  
 [1]: https://jiachengleng.netlify.app
-[2]: https://jiachengleng.netlify.app
-[3]: https://jiachengleng.netlify.app
-[4]: https://jiachengleng.netlify.app
-[5]: https://jiachengleng.netlify.app
+[^1]: 这句话可能对于某些大牛来说是假的

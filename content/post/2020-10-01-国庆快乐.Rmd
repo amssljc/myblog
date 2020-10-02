@@ -8,7 +8,7 @@ categories:
 tags: 
   - 语法练习
 ---
-由于前几天忙着做讨论班的PPT，趁着国庆的尾巴，今天才有空学习一下Rmarkdown的语法。  
+由于前几天忙着做讨论班的PPT，趁着国庆的尾巴，今天才有空学习一下[Markdown](https://www.markdownguide.org/extended-syntax/)的语法。  
 换行需要两个或者以上的空格  
 左对齐  
 如果需要另起一段，则需要按两次回车

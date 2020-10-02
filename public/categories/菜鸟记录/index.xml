@@ -13,18 +13,23 @@
       <pubDate>Fri, 02 Oct 2020 00:00:00 +0000</pubDate>
       
       <guid>/post/2020/10/02/%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95%E5%8A%A0%E8%BF%9B%E9%98%B6%E8%AF%AD%E6%B3%95/</guid>
-      <description>print(&amp;#39;hello,blogdown!&amp;#39;)水平线1
+      <description>print(&amp;#39;hello,blogdown!&amp;#39;)开始练习水平线1
 水平线2
 水平线3
 插入冷嘉承的链接。
 快速链接或者邮箱链接 
 https://jiachengleng.netlify.app or amssljc@163.com
-引用或者参考
+参考格式的链接
 冷嘉承的个人主页
-冷嘉承的个人主页
-冷嘉承的个人主页
-冷嘉承的个人主页
-冷嘉承的个人主页</description>
+利用20%代替链接中的空格
+paper wall
+表格
+吃的吃的吃的吃的吃的吃的玩的玩的玩的玩的玩的玩的玩的卤煮天坛火锅故宫用Markdown table generator更省事。
+if (i in 1:10){print(paste0(&amp;#39;I want&amp;#39;, i, &amp;#39; papers!&amp;#39;))}脚注
+发文章太难了吧。1
+转至开头
+这句话可能对于某些大牛来说是假的↩
+</description>
     </item>
     
     <item>
