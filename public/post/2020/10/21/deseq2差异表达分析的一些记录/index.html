@@ -4,8 +4,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
-    <title>思考 - 冷嘉承</title>
-    <meta property="og:title" content="思考 - 冷嘉承">
+    <title>DESeq2差异表达分析的一些记录 - 冷嘉承</title>
+    <meta property="og:title" content="DESeq2差异表达分析的一些记录 - 冷嘉承">
     
     <meta name="twitter:card" content="summary">
 
@@ -15,6 +15,11 @@
 
     
       
+      <meta property="description" content="今天研究一下DESeq2包：Analyzing RNA-seq data with DESeq2
+">
+      <meta property="og:description" content="今天研究一下DESeq2包：Analyzing RNA-seq data with DESeq2
+">
+      
     
 
     
@@ -22,8 +27,6 @@
 
     
 
-    
-    <link href="/tags/%E6%80%9D%E8%80%83/index.xml" rel="alternate" type="application/rss+xml" title="冷嘉承" />
     
     
 
@@ -34,7 +37,7 @@
   </head>
 
   
-  <body class="tags">
+  <body class="post">
     <header class="masthead">
       <h1><a href="/">冷嘉承</a></h1>
 
@@ -67,10 +70,10 @@
     <article class="main">
       <header class="title">
       
-<h1>思考</h1>
+<h1>DESeq2差异表达分析的一些记录</h1>
 
-<h3>
-</h3>
+<h3>Jiacheng Leng
+  /  2020-10-21</h3>
 <hr>
 
 
@@ -81,20 +84,17 @@
 
 
 
-
+<p>今天研究一下DESeq2包：<a href="http://bioconductor.org/packages/release/bioc/vignettes/DESeq2/inst/doc/DESeq2.html#why-un-normalized-counts">Analyzing RNA-seq data with DESeq2</a></p>
 <ul>
-  
-  <li>
-    <span class="date">2020/10/20</span>
-    <a href="/post/2020/10/20/%E6%AF%8F%E4%B8%AA%E4%BA%BA%E7%9A%84%E5%BF%AB%E4%B9%90/">每个人的快乐</a>
-  </li>
-  
+<li>输入应该为没有归一化过得count数据，因为DESeq2在软件内部矫正了library的大小；</li>
+<li></li>
 </ul>
+
 
   <footer>
   
 <nav class="post-nav">
-  <span class="nav-prev"></span>
+  <span class="nav-prev">&larr; <a href="/post/2020/10/20/%E6%AF%8F%E4%B8%AA%E4%BA%BA%E7%9A%84%E5%BF%AB%E4%B9%90/">每个人的快乐</a></span>
   <span class="nav-next"></span>
 </nav>
 

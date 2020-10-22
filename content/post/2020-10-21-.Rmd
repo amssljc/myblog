@@ -1,0 +1,20 @@
+---
+title: 差异表达分析的一些记录
+author: Jiacheng Leng
+date: '2020-10-21'
+slug: 差异表达分析的一些记录
+categories:
+  - 学习
+tags:
+  - 生物信息
+---
+
+今天研究一下DESeq2包：[Analyzing RNA-seq data with DESeq2](http://bioconductor.org/packages/release/bioc/vignettes/DESeq2/inst/doc/DESeq2.html#why-un-normalized-counts)  
+
+- 输入应该为没有归一化过得counts数据，因为DESeq2在软件内部矫正了library的大小；
+
+又看了一下[limma](extension://bfdogplmndidlpjfhoijckpakkdjkkil/pdf/viewer.html?file=https%3A%2F%2Fbioconductor.org%2Fpackages%2Frelease%2Fbioc%2Fvignettes%2Flimma%2Finst%2Fdoc%2Fusersguide.pdf)包，发现这个东西输入也是要求counts数据。
+
+
+
+

@@ -1,0 +1,31 @@
+---
+title: Ensembl ID 的解释
+author: Jiacheng Leng
+date: '2020-10-22'
+slug: ensembl-id-的解释
+categories:
+  - 学习
+tags:
+  - 生物信息
+---
+
+Ensembl ID 的解释：  
+
+>For example ENSMUSG00000017167.6. From this we can see that it's an Ensembl ID (ENS), from mouse (MUS), it's a gene (G) and it's on its sixth version (.6).
+
+ENSGR 的解释：
+
+>The Ensembl ids, by convention, are made of a species index ("ENS" for human and "ENSMUS" for mouse) followed by a feature type indicator ("G" for gene, "T" for transcript, "E" for exon, "P" for translation) and an 11-number figure.
+>
+>The GENCODE GTF/GFF3 files make an exception to this rule in the case of the so-called "pseudoautosomal regions" (PAR) of chromosome Y. The gene annotation in these regions is identical between chromosomes X and Y. Ensembl do not provide different feature ids for both chromosomes. The Ensembl GTF file only includes this annotation once, for chromosome X. However, we decided that the GENCODE GTF/GFF3 files would include the annotation in the PAR regions of both chromosomes.
+>
+>Since the GTF convention dictates that feature ids have to be unique for different genome regions, we slightly modify the Ensembl feature id by replacing the first zero with an "R". Thus, "ENSG00000182378.10" in chromosome X becomes "ENSGR0000182378.10" in chromosome Y.
+
+```r
+library('biomaRt') 
+mart <- useDataset("hsapiens_gene_ensembl", useMart("ensembl")) #创建mart
+genes <- df$genes #你的基因ID的向量
+
+G_list <- getBM(filters= "ensembl_peptide_id", attributes= c("ensembl_peptide_id","hgnc_symbol"),values=genes,mart= mart) #获取对应的gene Symbol
+
+```
