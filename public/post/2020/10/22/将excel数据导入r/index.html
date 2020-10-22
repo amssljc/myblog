@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>将excel数据导入R - 冷嘉承</title>
+    <meta property="og:title" content="将excel数据导入R - 冷嘉承">
+    
+    <meta name="twitter:card" content="summary">
+
+    
+      
+    
+
+    
+      
+      <meta property="description" content="方法一：
+[&amp;hellip;] my_data &amp;lt;- read.table(file = &amp;quot;clipboard&amp;quot;, sep = &amp;quot;\t&amp;quot;, header=TRUE)方法二：
+[&amp;hellip;] # Loadinglibrary(&amp;quot;readxl&amp;quot;)# xls filesmy_data &amp;lt;- &amp;hellip;">
+      <meta property="og:description" content="方法一：
+[&amp;hellip;] my_data &amp;lt;- read.table(file = &amp;quot;clipboard&amp;quot;, sep = &amp;quot;\t&amp;quot;, header=TRUE)方法二：
+[&amp;hellip;] # Loadinglibrary(&amp;quot;readxl&amp;quot;)# xls filesmy_data &amp;lt;- &amp;hellip;">
+      
+    
+
+    
+    
+
+    
+
+    
+    
+
+
+<link href='//cdn.bootcss.com/highlight.js/9.12.0/styles/github.min.css' rel='stylesheet' type='text/css' />
+
+
+
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    <link rel="stylesheet" href="/css/custom.css" />
+
+  </head>
+
+  
+  <body class="post">
+    <header class="masthead">
+      <h1><a href="/">冷嘉承</a></h1>
+
+<p class="tagline">A freshman of blogdown affected by yh Xie:)</p>
+
+      <nav class="menu">
+  <input id="menu-check" type="checkbox" hidden/>
+  <label id="menu-label" for="menu-check" class="unselectable" hidden>
+    <span class="icon close-icon">✕</span>
+    <span class="icon open-icon">☰</span>
+    <span class="text">Menu</span>
+  </label>
+  <ul>
+  
+  
+  <li><a href="/">Home</a></li>
+  
+  <li><a href="/about/">About me</a></li>
+  
+  <li><a href="/categories/">Categories</a></li>
+  
+  <li><a href="/tags/">Tags</a></li>
+  
+  
+  </ul>
+</nav>
+
+    </header>
+
+    <article class="main">
+      <header class="title">
+      
+<h1>将excel数据导入R</h1>
+
+<h3>Jiacheng Leng
+  /  2020-10-22</h3>
+<hr>
+
+
+      </header>
+
+
+
+
+
+
+<p><strong>方法一：</strong></p>
+<ol style="list-style-type: decimal">
+<li>打开excel，将你要导入的数据复制到剪切板(‘clipboard’)</li>
+<li>输入以下R代码（我惊了！！还能这么操作！）</li>
+</ol>
+<pre class="r"><code>my_data &lt;- read.table(file = &quot;clipboard&quot;, 
+                      sep = &quot;\t&quot;, header=TRUE)</code></pre>
+<p><strong>方法二：</strong></p>
+<ol style="list-style-type: decimal">
+<li>安装‘readxl’包</li>
+<li>输入以下代码（比较常规）：</li>
+</ol>
+<pre class="r"><code># Loading
+library(&quot;readxl&quot;)
+# xls files
+my_data &lt;- read_excel(&quot;my_file.xls&quot;)
+# xlsx files
+my_data &lt;- read_excel(&quot;my_file.xlsx&quot;)</code></pre>
+<p>同时可以指定sheet：</p>
+<pre class="r"><code># Specify sheet by its name
+my_data &lt;- read_excel(&quot;my_file.xlsx&quot;, sheet = &quot;data&quot;)
+  
+# Specify sheet by its index
+my_data &lt;- read_excel(&quot;my_file.xlsx&quot;, sheet = 2)</code></pre>
+<p><strong>方法三：</strong></p>
+<ol style="list-style-type: decimal">
+<li>安装‘xlsx’包</li>
+<li>输入以下代码：</li>
+</ol>
+<pre class="r"><code>library(&quot;xlsx&quot;)
+my_data &lt;- read.xlsx(file.choose(), 1)  # read first sheet</code></pre>
+
+
+  <footer>
+  
+<nav class="post-nav">
+  <span class="nav-prev">&larr; <a href="/post/2020/10/21/%E5%B7%AE%E5%BC%82%E8%A1%A8%E8%BE%BE%E5%88%86%E6%9E%90%E7%9A%84%E4%B8%80%E4%BA%9B%E8%AE%B0%E5%BD%95/">差异表达分析的一些记录</a></span>
+  <span class="nav-next"><a href="/post/2020/10/22/ensembl-id-%E7%9A%84%E8%A7%A3%E9%87%8A/">Ensembl ID 的解释</a> &rarr;</span>
+</nav>
+
+
+
+
+
+<script src="//yihui.org/js/math-code.js"></script>
+<script async src="//mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+<script async src="//yihui.org/js/center-img.js"></script>
+
+  
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/r.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/yaml.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/tex.min.js"></script>
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
+
+  
+  <hr>
+  <div class="copyright">© <a href="https://jiachengleng.netlify.app/">Jiacheng Leng</a> 2020-2020 | <a href="https://github.com/amssljc">Github</a></div>
+  
+  </footer>
+  </article>
+  
+  </body>
+</html>
+

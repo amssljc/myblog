@@ -6,15 +6,40 @@
     <description>Recent content in 学习 on 冷嘉承</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 21 Oct 2020 00:00:00 +0000</lastBuildDate><atom:link href="/categories/%E5%AD%A6%E4%B9%A0/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 22 Oct 2020 00:00:00 +0000</lastBuildDate><atom:link href="/categories/%E5%AD%A6%E4%B9%A0/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>DESeq2差异表达分析的一些记录</title>
-      <link>/post/2020/10/21/deseq2%E5%B7%AE%E5%BC%82%E8%A1%A8%E8%BE%BE%E5%88%86%E6%9E%90%E7%9A%84%E4%B8%80%E4%BA%9B%E8%AE%B0%E5%BD%95/</link>
+      <title>Ensembl ID 的解释</title>
+      <link>/post/2020/10/22/ensembl-id-%E7%9A%84%E8%A7%A3%E9%87%8A/</link>
+      <pubDate>Thu, 22 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2020/10/22/ensembl-id-%E7%9A%84%E8%A7%A3%E9%87%8A/</guid>
+      <description>Ensembl ID 的解释：
+For example ENSMUSG00000017167.6. From this we can see that it’s an Ensembl ID (ENS), from mouse (MUS), it’s a gene (G) and it’s on its sixth version (.6).
+ENSGR 的解释：
+The Ensembl ids, by convention, are made of a species index (“ENS” for human and “ENSMUS” for mouse) followed by a feature type indicator (“G” for gene, “T” for transcript, “E” for exon, “P” for translation) and an 11-number figure.</description>
+    </item>
+    
+    <item>
+      <title>将excel数据导入R</title>
+      <link>/post/2020/10/22/%E5%B0%86excel%E6%95%B0%E6%8D%AE%E5%AF%BC%E5%85%A5r/</link>
+      <pubDate>Thu, 22 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2020/10/22/%E5%B0%86excel%E6%95%B0%E6%8D%AE%E5%AF%BC%E5%85%A5r/</guid>
+      <description>方法一：
+打开excel，将你要导入的数据复制到剪切板(‘clipboard’)输入以下R代码（我惊了！！还能这么操作！）my_data &amp;lt;- read.table(file = &amp;quot;clipboard&amp;quot;, sep = &amp;quot;\t&amp;quot;, header=TRUE)方法二：
+安装‘readxl’包输入以下代码（比较常规）：# Loadinglibrary(&amp;quot;readxl&amp;quot;)# xls filesmy_data &amp;lt;- read_excel(&amp;quot;my_file.xls&amp;quot;)# xlsx filesmy_data &amp;lt;- read_excel(&amp;quot;my_file.xlsx&amp;quot;)同时可以指定sheet：
+# Specify sheet by its namemy_data &amp;lt;- read_excel(&amp;quot;my_file.xlsx&amp;quot;, sheet = &amp;quot;data&amp;quot;)# Specify sheet by its indexmy_data &amp;lt;- read_excel(&amp;quot;my_file.xlsx&amp;quot;, sheet = 2)方法三：
+安装‘xlsx’包输入以下代码：library(&amp;quot;xlsx&amp;quot;)my_data &amp;lt;- read.xlsx(file.choose(), 1) # read first sheet</description>
+    </item>
+    
+    <item>
+      <title>差异表达分析的一些记录</title>
+      <link>/post/2020/10/21/%E5%B7%AE%E5%BC%82%E8%A1%A8%E8%BE%BE%E5%88%86%E6%9E%90%E7%9A%84%E4%B8%80%E4%BA%9B%E8%AE%B0%E5%BD%95/</link>
       <pubDate>Wed, 21 Oct 2020 00:00:00 +0000</pubDate>
       
-      <guid>/post/2020/10/21/deseq2%E5%B7%AE%E5%BC%82%E8%A1%A8%E8%BE%BE%E5%88%86%E6%9E%90%E7%9A%84%E4%B8%80%E4%BA%9B%E8%AE%B0%E5%BD%95/</guid>
-      <description>今天研究一下DESeq2包：Analyzing RNA-seq data with DESeq2
-输入应该为没有归一化过得count数据，因为DESeq2在软件内部矫正了library的大小；</description>
+      <guid>/post/2020/10/21/%E5%B7%AE%E5%BC%82%E8%A1%A8%E8%BE%BE%E5%88%86%E6%9E%90%E7%9A%84%E4%B8%80%E4%BA%9B%E8%AE%B0%E5%BD%95/</guid>
+      <description>今天研究一下DESeq2包：Analyzing RNA-seq data with DESeq2
+输入应该为没有归一化过得counts数据，因为DESeq2在软件内部矫正了library的大小；又看了一下limma包，发现这个东西输入也是要求counts数据。</description>
     </item>
     
   </channel>

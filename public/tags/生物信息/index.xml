@@ -6,15 +6,27 @@
     <description>Recent content in 生物信息 on 冷嘉承</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 21 Oct 2020 00:00:00 +0000</lastBuildDate><atom:link href="/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 22 Oct 2020 00:00:00 +0000</lastBuildDate><atom:link href="/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>DESeq2差异表达分析的一些记录</title>
-      <link>/post/2020/10/21/deseq2%E5%B7%AE%E5%BC%82%E8%A1%A8%E8%BE%BE%E5%88%86%E6%9E%90%E7%9A%84%E4%B8%80%E4%BA%9B%E8%AE%B0%E5%BD%95/</link>
+      <title>Ensembl ID 的解释</title>
+      <link>/post/2020/10/22/ensembl-id-%E7%9A%84%E8%A7%A3%E9%87%8A/</link>
+      <pubDate>Thu, 22 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2020/10/22/ensembl-id-%E7%9A%84%E8%A7%A3%E9%87%8A/</guid>
+      <description>Ensembl ID 的解释：
+For example ENSMUSG00000017167.6. From this we can see that it’s an Ensembl ID (ENS), from mouse (MUS), it’s a gene (G) and it’s on its sixth version (.6).
+ENSGR 的解释：
+The Ensembl ids, by convention, are made of a species index (“ENS” for human and “ENSMUS” for mouse) followed by a feature type indicator (“G” for gene, “T” for transcript, “E” for exon, “P” for translation) and an 11-number figure.</description>
+    </item>
+    
+    <item>
+      <title>差异表达分析的一些记录</title>
+      <link>/post/2020/10/21/%E5%B7%AE%E5%BC%82%E8%A1%A8%E8%BE%BE%E5%88%86%E6%9E%90%E7%9A%84%E4%B8%80%E4%BA%9B%E8%AE%B0%E5%BD%95/</link>
       <pubDate>Wed, 21 Oct 2020 00:00:00 +0000</pubDate>
       
-      <guid>/post/2020/10/21/deseq2%E5%B7%AE%E5%BC%82%E8%A1%A8%E8%BE%BE%E5%88%86%E6%9E%90%E7%9A%84%E4%B8%80%E4%BA%9B%E8%AE%B0%E5%BD%95/</guid>
-      <description>今天研究一下DESeq2包：Analyzing RNA-seq data with DESeq2
-输入应该为没有归一化过得count数据，因为DESeq2在软件内部矫正了library的大小；</description>
+      <guid>/post/2020/10/21/%E5%B7%AE%E5%BC%82%E8%A1%A8%E8%BE%BE%E5%88%86%E6%9E%90%E7%9A%84%E4%B8%80%E4%BA%9B%E8%AE%B0%E5%BD%95/</guid>
+      <description>今天研究一下DESeq2包：Analyzing RNA-seq data with DESeq2
+输入应该为没有归一化过得counts数据，因为DESeq2在软件内部矫正了library的大小；又看了一下limma包，发现这个东西输入也是要求counts数据。</description>
     </item>
     
   </channel>
