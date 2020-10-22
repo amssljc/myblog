@@ -1,0 +1,53 @@
+---
+title: 将excel数据导入R
+author: Jiacheng Leng
+date: '2020-10-22'
+slug: 将excel数据导入r
+categories:
+  - 学习
+tags:
+  - R data processing
+---
+
+**方法一：**  
+
+1. 打开excel，将你要导入的数据复制到剪切板(‘clipboard’)
+2. 输入以下R代码（我惊了！！还能这么操作！）
+
+```r
+my_data <- read.table(file = "clipboard", 
+                      sep = "\t", header=TRUE)
+```
+
+**方法二：**
+
+1. 安装‘readxl'包
+2. 输入以下代码（比较常规）：
+
+```r
+# Loading
+library("readxl")
+# xls files
+my_data <- read_excel("my_file.xls")
+# xlsx files
+my_data <- read_excel("my_file.xlsx")
+```
+同时可以指定sheet： 
+
+```r
+# Specify sheet by its name
+my_data <- read_excel("my_file.xlsx", sheet = "data")
+  
+# Specify sheet by its index
+my_data <- read_excel("my_file.xlsx", sheet = 2)
+```
+
+**方法三：**
+
+1. 安装‘xlsx’包
+2. 输入以下代码：
+
+```r
+library("xlsx")
+my_data <- read.xlsx(file.choose(), 1)  # read first sheet
+```

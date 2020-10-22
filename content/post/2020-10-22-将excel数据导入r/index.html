@@ -1,0 +1,44 @@
+---
+title: 将excel数据导入R
+author: Jiacheng Leng
+date: '2020-10-22'
+slug: 将excel数据导入r
+categories:
+  - 学习
+tags:
+  - R data processing
+---
+
+
+
+<p><strong>方法一：</strong></p>
+<ol style="list-style-type: decimal">
+<li>打开excel，将你要导入的数据复制到剪切板(‘clipboard’)</li>
+<li>输入以下R代码（我惊了！！还能这么操作！）</li>
+</ol>
+<pre class="r"><code>my_data &lt;- read.table(file = &quot;clipboard&quot;, 
+                      sep = &quot;\t&quot;, header=TRUE)</code></pre>
+<p><strong>方法二：</strong></p>
+<ol style="list-style-type: decimal">
+<li>安装‘readxl’包</li>
+<li>输入以下代码（比较常规）：</li>
+</ol>
+<pre class="r"><code># Loading
+library(&quot;readxl&quot;)
+# xls files
+my_data &lt;- read_excel(&quot;my_file.xls&quot;)
+# xlsx files
+my_data &lt;- read_excel(&quot;my_file.xlsx&quot;)</code></pre>
+<p>同时可以指定sheet：</p>
+<pre class="r"><code># Specify sheet by its name
+my_data &lt;- read_excel(&quot;my_file.xlsx&quot;, sheet = &quot;data&quot;)
+  
+# Specify sheet by its index
+my_data &lt;- read_excel(&quot;my_file.xlsx&quot;, sheet = 2)</code></pre>
+<p><strong>方法三：</strong></p>
+<ol style="list-style-type: decimal">
+<li>安装‘xlsx’包</li>
+<li>输入以下代码：</li>
+</ol>
+<pre class="r"><code>library(&quot;xlsx&quot;)
+my_data &lt;- read.xlsx(file.choose(), 1)  # read first sheet</code></pre>
