@@ -36,7 +36,7 @@ ______________________________________________________
   
 利用20%代替链接中的空格
 
-![paper wall](/post/2020-10-02-基础语法加进阶语法_files/reinis-birznieks-lu5uhEAy2lI-unsplash.jpg 'what she likes'){width=50% height=50%}
+![](/post/2020-10-02-基础语法加进阶语法_files/reinis-birznieks-lu5uhEAy2lI-unsplash.jpg 'what she likes'){width=50% height=50%}
 
 **表格**
 
