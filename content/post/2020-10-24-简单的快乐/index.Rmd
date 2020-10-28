@@ -15,4 +15,4 @@ slug: 简单的快乐
 一瓣蒜，  
 快乐就是这么简单！
 
-![](/post/2020-10-24-简单的快乐/banmian.jpg)
+![](index_files/2020-10-24-简单的快乐/banmian.jpg)
