@@ -6,7 +6,29 @@
     <description>Recent content in Home on 冷嘉承</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 28 Oct 2020 00:00:00 +0000</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 02 Nov 2020 00:00:00 +0000</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>利用TCGA的mRNA表达数据做生存分析</title>
+      <link>/post/2020/11/02/%E5%88%A9%E7%94%A8tcga%E7%9A%84mrna%E8%A1%A8%E8%BE%BE%E6%95%B0%E6%8D%AE%E5%81%9A%E7%94%9F%E5%AD%98%E5%88%86%E6%9E%90/</link>
+      <pubDate>Mon, 02 Nov 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2020/11/02/%E5%88%A9%E7%94%A8tcga%E7%9A%84mrna%E8%A1%A8%E8%BE%BE%E6%95%B0%E6%8D%AE%E5%81%9A%E7%94%9F%E5%AD%98%E5%88%86%E6%9E%90/</guid>
+      <description>数据下载
+可以从各大网站寻找方法，本文重点在于得到数据后的分析。这一步之后应到得到的数据有：基因表达数据
+这一步需要用程序批量处理整合成表达矩阵，并且注意区分正常样本和病变样本。
+clinical临床数据
+数据结构如图：
+数据整理
+这一步我们需要至少从中提取出4个变量提供给下游分析，分别是病例ID，生存状态，以及与生存时间相关的两个变量。具体变量的解释可以查看官方文档。
+clinical.data &amp;lt;- read.csv(&amp;#39;../Realdata/clinical.tsv&amp;#39;, sep = &amp;#39;\t&amp;#39;)clinical.data.select &amp;lt;-clinical.data[, c(&amp;#39;case_submitter_id&amp;#39;,&amp;#39;vital_status&amp;#39;,&amp;#39;days_to_death&amp;#39;,&amp;#39;days_to_last_follow_up&amp;#39;)]病例ID用来和表达数据一一对应，并且同时得到目标基因的表达水平，高于均值为高表达，记为1，反之0；
+生存状态用判断是否为删失数据，记censored=1，dead=2；
+生存时间就是横轴信息；
+得到的数据结构如图：
+其中case_id应该为TCGA的ID。
+生存分析
+library(&amp;#39;survival&amp;#39;)library(&amp;#39;survminer&amp;#39;)fit &amp;lt;- survfit(Surv(time, status) ~ expression_level , data = clinical.data.select)ggsurvplot(fit,pval = TRUE, pval.method = TRUE,surv.median.line = &amp;quot;hv&amp;quot;, # Specify median survivalggtheme = theme_bw(), # Change ggplot2 themepalette = c(&amp;quot;#E7B800&amp;quot;, &amp;quot;#2E9FDF&amp;quot;) ,legend.</description>
+    </item>
+    
     <item>
       <title>小可爱制定的训练计划</title>
       <link>/post/2020/10/28/%E5%B0%8F%E5%8F%AF%E7%88%B1%E5%88%B6%E5%AE%9A%E7%9A%84%E8%AE%AD%E7%BB%83%E8%AE%A1%E5%88%92/</link>
