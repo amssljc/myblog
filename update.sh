@@ -1,2 +1,2 @@
 git add . && git commit -m 'update' && git push origin master
-PAUSE
+sleep 3
