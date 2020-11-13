@@ -50,11 +50,17 @@ h2 {
   font-weight: bold;
 }
 
-h3, h4, h5, h6 {
+h3 {
+  font-size: 19px;
+  font-weight: bold;
+}
+
+h4, h5, h6 {
   font-size: 19px;
   font-weight: bold;
   text-align: left;
 }
+
 
 blockquote {
   margin: 1em 0;

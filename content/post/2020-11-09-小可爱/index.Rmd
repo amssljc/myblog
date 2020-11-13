@@ -1,0 +1,35 @@
+---
+title: 背部训练记录
+author: Jiacheng Leng
+date: '2020-11-09'
+slug: 训练记录
+categories:
+  - 日记
+tags:
+  - 健身
+---
+
+## 背部训练
+
+- [x] 硬拉 30kg 3*12
+- [x] 固定器械引体向上 71.5kg 1\*12 + 
+                        65kg 1\*12 + 58.5kg 1\*12 
+- [x] 坐姿划船 30kg 2\*12 + 35kg 1\*12
+- [x] 高位下拉 30kg 2\*12 + 35kg 1\*12
+- [x] 绳索下压 25kg 3*12
+- [x] 山羊挺身 2*20
+- [x] 游泳 20*25m = 500m
+
+饮食也是训练的一部分：  
+
+### 小可爱点的米线
+![](images/mixan.jpg){height=100% width=70%}
+
+### 鸡蛋干  
+![](images/jidan.jpg){height=70% width=70%}
+
+### 手剥火龙果  
+![](images/sbhlg.jpg){height=70% width=70%}
+
+
+
