@@ -8,12 +8,24 @@
     <language>en-us</language>
     <lastBuildDate>Fri, 20 Nov 2020 00:00:00 +0000</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Automation of Cytoscape using R</title>
+      <link>/post/2020/11/20/automation-of-cytoscape-using-r/</link>
+      <pubDate>Fri, 20 Nov 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2020/11/20/automation-of-cytoscape-using-r/</guid>
+      <description>Preface经过我的一番摸索，终于搞明白了，这个R包本身说明并不详细，具体参数基本全靠猜，当然我还参考了Cytoscape automation in R using Rcy3(仅仅参考了一行代码)，累死我了- -！
+1. 安装R包“RCy3”if (!requireNamespace(&amp;quot;BiocManager&amp;quot;, quietly = TRUE))install.packages(&amp;quot;BiocManager&amp;quot;)BiocManager::install(&amp;quot;RCy3&amp;quot;)2. 调用函数cyrestPOST本文以Cytoscape中的Reactome FI Apps中的“Gene Set/Mutation Analysis”功能生成网络图，并导出为csv文件为例具体讲解自动化(Automation)流程。
+废话不多说，直接导入下面代码，并修改相应的path
+library(RCy3)filename.input &amp;lt;- &amp;#39;path.of.your.input.file&amp;#39;filename.output &amp;lt;- &amp;#39;path.of.your.output.file&amp;#39;)body.reactome &amp;lt;- list(fiVersion = &amp;#39;2019&amp;#39;, # Reactome FI Networks Version, 不同版本结果不同format = &amp;#39;GeneSet&amp;#39;, # Specify formatfile = filename.input, # 对应的是GUI中的 Choose data file：enteredGenes = &amp;#39;null&amp;#39;, # 对应的是GUI中的 Or enter gene set：chooseHomoGenes = FALSE,useLinkers = FALSE, # 对应的是GUI中的 Use linker genes：showUnlinked = FALSE, # 对应的是GUI中的 Show genes not linked to others：fetchFIAnnotations = TRUE, # 对应的是GUI中的 Fetch FI annotations：sampleCutoffValue = &amp;#39;4&amp;#39;)body.</description>
+    </item>
+    
+    <item>
       <title>PDD机械革命白蛟龙p，安全下车！</title>
       <link>/post/2020/11/20/pdd%E6%9C%BA%E6%A2%B0%E9%9D%A9%E5%91%BD%E7%99%BD%E8%9B%9F%E9%BE%99p-%E5%AE%89%E5%85%A8%E4%B8%8B%E8%BD%A6/</link>
       <pubDate>Fri, 20 Nov 2020 00:00:00 +0000</pubDate>
       
       <guid>/post/2020/11/20/pdd%E6%9C%BA%E6%A2%B0%E9%9D%A9%E5%91%BD%E7%99%BD%E8%9B%9F%E9%BE%99p-%E5%AE%89%E5%85%A8%E4%B8%8B%E8%BD%A6/</guid>
-      <description>旧电脑鲁大师跑分新电脑鲁大师跑分硬件信息本来以为显示屏是奇美的，没想到发了个京东方，美滋滋！CPU信息看着这核心数量，通道数量，爽的一批！</description>
+      <description>旧电脑鲁大师跑分新电脑鲁大师跑分硬件信息本来以为显示屏是奇美的，没想到发了个京东方，美滋滋！CPU信息看着这核心数量，通道数量，爽的一批！</description>
     </item>
     
     <item>

@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>Automation of Cytoscape using R - 冷嘉承</title>
+    <meta property="og:title" content="Automation of Cytoscape using R - 冷嘉承">
+    
+    <meta name="twitter:card" content="summary">
+
+    
+      
+    
+
+    
+      
+      <meta property="description" content="经过我的一番摸索，终于搞明白了，这个R包本身说明并不详细，具体参数基本全靠猜，当然我还参考了Cytoscape automation in R using Rcy3(仅仅参考了一行代码)，累死我了- -！
+[&amp;hellip;] if (!requireNamespace(&amp;quot;BiocManager&amp;quot;, quietly = TRUE)) &amp;hellip;">
+      <meta property="og:description" content="经过我的一番摸索，终于搞明白了，这个R包本身说明并不详细，具体参数基本全靠猜，当然我还参考了Cytoscape automation in R using Rcy3(仅仅参考了一行代码)，累死我了- -！
+[&amp;hellip;] if (!requireNamespace(&amp;quot;BiocManager&amp;quot;, quietly = TRUE)) &amp;hellip;">
+      
+    
+
+    
+    
+
+    
+
+    
+    
+
+
+<link href='//cdn.bootcss.com/highlight.js/9.12.0/styles/github.min.css' rel='stylesheet' type='text/css' />
+
+
+
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    <link rel="stylesheet" href="/css/custom.css" />
+
+  </head>
+
+  
+  <body class="post">
+    <header class="masthead">
+      <h1><a href="/">冷嘉承</a></h1>
+
+<p class="tagline">A freshman of blogdown affected by yh Xie:)</p>
+
+      <nav class="menu">
+  <input id="menu-check" type="checkbox" hidden/>
+  <label id="menu-label" for="menu-check" class="unselectable" hidden>
+    <span class="icon close-icon">✕</span>
+    <span class="icon open-icon">☰</span>
+    <span class="text">Menu</span>
+  </label>
+  <ul>
+  
+  
+  <li><a href="/">Home</a></li>
+  
+  <li><a href="/about/">About me</a></li>
+  
+  <li><a href="/categories/">Categories</a></li>
+  
+  <li><a href="/tags/">Tags</a></li>
+  
+  
+  </ul>
+</nav>
+
+    </header>
+
+    <article class="main">
+      <header class="title">
+      
+<h1>Automation of Cytoscape using R</h1>
+
+<h3>Jiacheng Leng
+  /  2020-11-20</h3>
+<hr>
+
+
+      </header>
+
+
+
+
+<link href="/post/2020/11/20/automation-of-cytoscape-using-r/index_files/anchor-sections/anchor-sections.css" rel="stylesheet" />
+<script src="/post/2020/11/20/automation-of-cytoscape-using-r/index_files/anchor-sections/anchor-sections.js"></script>
+
+
+<div id="preface" class="section level3">
+<h3>Preface</h3>
+<p>经过我的一番摸索，终于搞明白了，这个R包本身说明并不详细，具体参数基本全靠猜，当然我还参考了<a href="https://bioconductor.github.io/BiocWorkshops/cytoscape-automation-in-r-using-rcy3.html">Cytoscape automation in R using Rcy3</a>(仅仅参考了一行代码)，累死我了- -！</p>
+<div id="安装r包rcy3" class="section level4">
+<h4>1. 安装R包<a href="https://bioconductor.org/packages/release/bioc/html/RCy3.html">“RCy3”</a></h4>
+<pre class="r"><code>if (!requireNamespace(&quot;BiocManager&quot;, quietly = TRUE))
+    install.packages(&quot;BiocManager&quot;)
+
+BiocManager::install(&quot;RCy3&quot;)</code></pre>
+</div>
+<div id="调用函数cyrestpost" class="section level4">
+<h4>2. 调用函数cyrestPOST</h4>
+<p>本文以Cytoscape中的Reactome FI Apps中的“Gene Set/Mutation Analysis”功能生成网络图，并导出为csv文件为例具体讲解自动化(Automation)流程。</p>
+<p>废话不多说，直接导入下面代码，并修改相应的path</p>
+<pre class="r"><code>library(RCy3)
+filename.input &lt;- &#39;path.of.your.input.file&#39;
+filename.output &lt;- &#39;path.of.your.output.file&#39;
+)
+body.reactome &lt;- list(
+  fiVersion = &#39;2019&#39;, # Reactome FI Networks Version, 不同版本结果不同
+  format = &#39;GeneSet&#39;, # Specify format
+  file = filename.input, # 对应的是GUI中的 Choose data file：
+  enteredGenes = &#39;null&#39;, # 对应的是GUI中的 Or enter gene set：
+  chooseHomoGenes = FALSE,
+  useLinkers = FALSE, # 对应的是GUI中的 Use linker genes：
+  showUnlinked = FALSE, # 对应的是GUI中的 Show genes not linked to others：
+  fetchFIAnnotations = TRUE, # 对应的是GUI中的 Fetch FI annotations：
+  sampleCutoffValue = &#39;4&#39;
+)
+body.export &lt;- list(network = &#39;current&#39;, # 默认参数值，即当前窗口显示的网络
+                    options = &#39;CSV&#39;, # 输出的文件格式
+                    outputFile = filename.output) # 输出的文件名(最好为绝对路径)
+
+# 调用Reatome FI 这个Apps中的&quot;Gene Set/Mutation Analysis&quot;功能
+cyrestPOST(operation = &#39;reactomefiviz/v1/buildFISubNetwork&#39;,
+             body = body.reactome,
+             base.url = &#39;http://localhost:1234&#39;)
+             
+# 以边的形式导出网络表格           
+cyrestPOST(operation = &#39;v1/commands/network/export&#39;,
+           body = body.export,
+           base.url = &#39;http://localhost:1234&#39;)</code></pre>
+<p>值得说明的是，有一系列cyrest的函数：</p>
+<pre class="r"><code>cyrestPUT()
+cyrestGET()
+cyrestPOST()
+cyrestDELETE()
+cyrestAPI()
+</code></pre>
+<p>具体使用哪一个需要参考<a href="http://localhost:1234/v1/swaggerUI/swagger-ui/index.html?url=http://localhost:1234/v1/sagger.json#/">CyREST API</a>和<a href="http://localhost:1234/v1/swaggerUI/swagger-ui/index.html?url=http%3A%2F%2Flocalhost%3A1234%2Fv1%2Fcommands%2Fswagger.json">CyREST Command API</a>.</p>
+<p>例如要调用Reactome FI 中的富集分析功能，那就去<a href="http://localhost:1234/v1/swaggerUI/swagger-ui/index.html?url=http://localhost:1234/v1/sagger.json#/">CyREST API</a>中找到相应的函数点进去：</p>
+<p><img src="images/微信图片_20201120211904.png" /></p>
+<p>POST则调用cyrestPOST()，以此类推。后面那串去掉第一个斜杠复制到参数operation中即可。至于参数body则需要在网页生成json格式，在根据本文的格式一一对照修改即可。base.url则是默认参数，一般无需修改。</p>
+<p>还需注意的是程序运行时需要保持Cytoscape打开，并且处于正常运行状态，因为其命令传递方式大概是，通过Rstudio传到swagger服务器，再从服务器转到本机的Cytoscape。</p>
+<p>最后，其他更详细信息请参考<a href="https://github.com/cytoscape/cytoscape-automation/wiki#r-notebooks-and-scripts">Cytoscape-automation</a>(虽然我觉得应该够用了，嘻嘻)。</p>
+</div>
+</div>
+
+
+  <footer>
+  
+<nav class="post-nav">
+  <span class="nav-prev">&larr; <a href="/post/2020/11/20/pdd%E6%9C%BA%E6%A2%B0%E9%9D%A9%E5%91%BD%E7%99%BD%E8%9B%9F%E9%BE%99p-%E5%AE%89%E5%85%A8%E4%B8%8B%E8%BD%A6/">PDD机械革命白蛟龙p，安全下车！</a></span>
+  <span class="nav-next"></span>
+</nav>
+
+
+
+
+
+<script src="//yihui.org/js/math-code.js"></script>
+<script async src="//mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+<script async src="//yihui.org/js/center-img.js"></script>
+
+  
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/r.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/yaml.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/tex.min.js"></script>
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
+
+  
+  <hr>
+  <div class="copyright">© <a href="https://jiachengleng.netlify.app/">Jiacheng Leng</a> 2020-2020 | <a href="https://github.com/amssljc">Github</a></div>
+  
+  </footer>
+  <script type="text/javascript" src="//rf.revolvermaps.com/0/0/6.js?i=5etmion8ow2&amp;m=7&amp;c=e63100&amp;cr1=ffffff&amp;f=arial&amp;l=0&amp;bv=90&amp;lx=-420&amp;ly=420&amp;hi=20&amp;he=7&amp;hc=a8ddff&amp;rs=80" async="async"></script>
+
+  </article>
+  
+  </body>
+</html>
+
