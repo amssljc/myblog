@@ -19,5 +19,17 @@
 .ace_cursor,.ace_string.ace_regexp {color: #f5999c #光标颜色}虽然格式是.rstheme,但是是用css的编码方式编写的。</description>
     </item>
     
+    <item>
+      <title>Rstudio更改光标颜色</title>
+      <link>/post/2020/11/28/rstudio%E6%9B%B4%E6%94%B9%E5%85%89%E6%A0%87%E9%A2%9C%E8%89%B2/</link>
+      <pubDate>Sat, 28 Nov 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2020/11/28/rstudio%E6%9B%B4%E6%94%B9%E5%85%89%E6%A0%87%E9%A2%9C%E8%89%B2/</guid>
+      <description>打开
+Yourpath2Rstudio\RStudio\resources\themes\yourtheme.rstheme
+更改以下代码的颜色部分即可。
+.ace_cursor,.ace_string.ace_regexp {color: #f5999c #光标颜色}虽然格式是.rstheme,但是是用css的编码方式编写的。</description>
+    </item>
+    
   </channel>
 </rss>
