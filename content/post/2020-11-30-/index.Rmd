@@ -1,0 +1,25 @@
+---
+title: Rstudio更改光标颜色
+author: Jiacheng Leng
+date: '2020-11-28'
+slug: rstudio更改光标颜色
+categories:
+  - 学习
+tags:
+  - Rstudio
+---
+
+打开
+
+> Yourpath2Rstudio\\RStudio\\resources\\themes\\yourtheme.rstheme
+
+更改以下代码的颜色部分即可。
+
+```css
+.ace_cursor,
+.ace_string.ace_regexp {
+  color: #f5999c #光标颜色
+}
+```
+
+虽然格式是.rstheme,但是是用css的编码方式编写的。
