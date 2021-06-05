@@ -1,0 +1,39 @@
+---
+title: python快速求解矩阵最小（大）特征值
+author: Jiacheng Leng
+date: '2021-06-05'
+slug: python快速求解矩阵最小-大-特征值
+categories:
+  - 学习
+tags:
+  - python skill
+---
+
+```python
+from generate_data import *
+from scipy.sparse.linalg import eigsh
+from numpy.linalg import eigh
+from time import time
+
+# 生成一个实对称矩阵
+theta1  = generate_theta1(500,'BA',0.1)
+
+time1 = time()
+for i in range(20):
+    # 'SA' small algebra eigenvalues
+    eigsh(theta1,which='SA',return_eigenvectors=False,k=1)
+    
+time2 = time()
+print(time2-time1)
+time1 = time()
+for i in range(20):
+    min(eigh(theta1)[0])
+time2 = time()
+print(time2-time1)
+```
+Output:
+
+```
+0.15729713439941406
+0.6559879779815674
+```

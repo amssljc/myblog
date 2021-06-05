@@ -1,6 +1,10 @@
 {
-    "path" : "D:/R code/Rblogdown/myblog/public/post",
+    "path" : "D:/R code/Rblogdown/myblog/content/post",
     "sortOrder" : [
+        {
+            "ascending" : false,
+            "columnIndex" : 4
+        },
         {
             "ascending" : true,
             "columnIndex" : 2

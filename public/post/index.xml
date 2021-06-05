@@ -6,7 +6,17 @@
     <description>Recent content in Posts on 冷嘉承</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 28 Nov 2020 00:00:00 +0000</lastBuildDate><atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 05 Jun 2021 00:00:00 +0000</lastBuildDate><atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>python快速求解矩阵最小（大）特征值</title>
+      <link>/post/2021/06/05/python%E5%BF%AB%E9%80%9F%E6%B1%82%E8%A7%A3%E7%9F%A9%E9%98%B5%E6%9C%80%E5%B0%8F-%E5%A4%A7-%E7%89%B9%E5%BE%81%E5%80%BC/</link>
+      <pubDate>Sat, 05 Jun 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2021/06/05/python%E5%BF%AB%E9%80%9F%E6%B1%82%E8%A7%A3%E7%9F%A9%E9%98%B5%E6%9C%80%E5%B0%8F-%E5%A4%A7-%E7%89%B9%E5%BE%81%E5%80%BC/</guid>
+      <description>from generate_data import *from scipy.sparse.linalg import eigshfrom numpy.linalg import eighfrom time import time# 生成一个实对称矩阵theta1 = generate_theta1(500,&amp;#39;BA&amp;#39;,0.1)time1 = time()for i in range(20):# &amp;#39;SA&amp;#39; small algebra eigenvalueseigsh(theta1,which=&amp;#39;SA&amp;#39;,return_eigenvectors=False,k=1)time2 = time()print(time2-time1)time1 = time()for i in range(20):min(eigh(theta1)[0])time2 = time()print(time2-time1)Output:
+0.157297134399414060.6559879779815674</description>
+    </item>
+    
     <item>
       <title>Rstudio更改光标颜色</title>
       <link>/post/2020/11/28/rstudio%E6%9B%B4%E6%94%B9%E5%85%89%E6%A0%87%E9%A2%9C%E8%89%B2/</link>

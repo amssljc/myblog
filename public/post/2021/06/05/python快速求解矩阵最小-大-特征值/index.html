@@ -4,8 +4,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
-    <title>Rstudio更改光标颜色 - 冷嘉承</title>
-    <meta property="og:title" content="Rstudio更改光标颜色 - 冷嘉承">
+    <title>python快速求解矩阵最小（大）特征值 - 冷嘉承</title>
+    <meta property="og:title" content="python快速求解矩阵最小（大）特征值 - 冷嘉承">
     
     <meta name="twitter:card" content="summary">
 
@@ -15,16 +15,8 @@
 
     
       
-      <meta property="description" content="打开
-[&amp;hellip;] Yourpath2Rstudio\RStudio\resources\themes\yourtheme.rstheme
-[&amp;hellip;] 更改以下代码的颜色部分即可。
-.ace_cursor,.ace_string.ace_regexp {color: #f5999c #光标颜色}虽然格式是.rstheme,但是是用css的编码方式编写的。
-">
-      <meta property="og:description" content="打开
-[&amp;hellip;] Yourpath2Rstudio\RStudio\resources\themes\yourtheme.rstheme
-[&amp;hellip;] 更改以下代码的颜色部分即可。
-.ace_cursor,.ace_string.ace_regexp {color: #f5999c #光标颜色}虽然格式是.rstheme,但是是用css的编码方式编写的。
-">
+      <meta property="description" content="from generate_data import *from scipy.sparse.linalg import eigshfrom numpy.linalg import eighfrom time import time# 生成一个实对称矩阵theta1 = generate_theta1(500,&amp;#39;BA&amp;#39;,0.1)time1 = time()for i in &amp;hellip;">
+      <meta property="og:description" content="from generate_data import *from scipy.sparse.linalg import eigshfrom numpy.linalg import eighfrom time import time# 生成一个实对称矩阵theta1 = generate_theta1(500,&amp;#39;BA&amp;#39;,0.1)time1 = time()for i in &amp;hellip;">
       
     
 
@@ -81,10 +73,10 @@
     <article class="main">
       <header class="title">
       
-<h1>Rstudio更改光标颜色</h1>
+<h1>python快速求解矩阵最小（大）特征值</h1>
 
 <h3>Jiacheng Leng
-  /  2020-11-28</h3>
+  /  2021-06-05</h3>
 <hr>
 
 
@@ -93,27 +85,40 @@
 
 
 
-<link href="/post/2020/11/28/rstudio%E6%9B%B4%E6%94%B9%E5%85%89%E6%A0%87%E9%A2%9C%E8%89%B2/index_files/anchor-sections/anchor-sections.css" rel="stylesheet" />
-<script src="/post/2020/11/28/rstudio%E6%9B%B4%E6%94%B9%E5%85%89%E6%A0%87%E9%A2%9C%E8%89%B2/index_files/anchor-sections/anchor-sections.js"></script>
+<link href="/post/2021/06/05/python%E5%BF%AB%E9%80%9F%E6%B1%82%E8%A7%A3%E7%9F%A9%E9%98%B5%E6%9C%80%E5%B0%8F-%E5%A4%A7-%E7%89%B9%E5%BE%81%E5%80%BC/index_files/anchor-sections/anchor-sections.css" rel="stylesheet" />
+<script src="/post/2021/06/05/python%E5%BF%AB%E9%80%9F%E6%B1%82%E8%A7%A3%E7%9F%A9%E9%98%B5%E6%9C%80%E5%B0%8F-%E5%A4%A7-%E7%89%B9%E5%BE%81%E5%80%BC/index_files/anchor-sections/anchor-sections.js"></script>
 
 
-<p>打开</p>
-<blockquote>
-<p>Yourpath2Rstudio\RStudio\resources\themes\yourtheme.rstheme</p>
-</blockquote>
-<p>更改以下代码的颜色部分即可。</p>
-<pre class="css"><code>.ace_cursor,
-.ace_string.ace_regexp {
-  color: #f5999c #光标颜色
-}</code></pre>
-<p>虽然格式是.rstheme,但是是用css的编码方式编写的。</p>
+<pre class="python"><code>from generate_data import *
+from scipy.sparse.linalg import eigsh
+from numpy.linalg import eigh
+from time import time
+
+# 生成一个实对称矩阵
+theta1  = generate_theta1(500,&#39;BA&#39;,0.1)
+
+time1 = time()
+for i in range(20):
+    # &#39;SA&#39; small algebra eigenvalues
+    eigsh(theta1,which=&#39;SA&#39;,return_eigenvectors=False,k=1)
+    
+time2 = time()
+print(time2-time1)
+time1 = time()
+for i in range(20):
+    min(eigh(theta1)[0])
+time2 = time()
+print(time2-time1)</code></pre>
+<p>Output:</p>
+<pre><code>0.15729713439941406
+0.6559879779815674</code></pre>
 
 
   <footer>
   
 <nav class="post-nav">
-  <span class="nav-prev">&larr; <a href="/post/2020/11/20/automation-of-cytoscape-using-r/">Automation of Cytoscape using R</a></span>
-  <span class="nav-next"><a href="/post/2021/06/05/python%E5%BF%AB%E9%80%9F%E6%B1%82%E8%A7%A3%E7%9F%A9%E9%98%B5%E6%9C%80%E5%B0%8F-%E5%A4%A7-%E7%89%B9%E5%BE%81%E5%80%BC/">python快速求解矩阵最小（大）特征值</a> &rarr;</span>
+  <span class="nav-prev">&larr; <a href="/post/2020/11/28/rstudio%E6%9B%B4%E6%94%B9%E5%85%89%E6%A0%87%E9%A2%9C%E8%89%B2/">Rstudio更改光标颜色</a></span>
+  <span class="nav-next"></span>
 </nav>
 
 
