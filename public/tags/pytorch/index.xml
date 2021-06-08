@@ -13,7 +13,7 @@
       <pubDate>Tue, 08 Jun 2021 00:00:00 +0000</pubDate>
       
       <guid>/post/2021/06/08/using-pytorch-to-solve-optimization-problem/</guid>
-      <description></description>
+      <description>import torchfrom torch.optim import SGD, Adam, ASGD, LBFGSfrom torch.nn import MSELoss# define your torch modelclass yourDeepModel(torch.nn.Module):def __init__(self, args):super(yourDeepModel, self).__init__()self.x = torch.nn.Parameter(torch.rand(x_dims))passdef forward(self):return # initializationmodel = yourDeepModel()optimizer = LBFGS(model.parameters(), lr=.01)epoch = 1000model.train()for i in range(epoch):def closure():optimizer.zero_grad()optim_value = model()optim_value.backward()return optim_valueoptimizer.step(closure)if i % 10 == 0:print(f&amp;quot;optim value:{closure().item()}&amp;quot;)# print your trainable variableprint(f&amp;quot;optim solution:{model.</description>
     </item>
     
   </channel>
