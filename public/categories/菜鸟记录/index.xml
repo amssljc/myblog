@@ -6,7 +6,16 @@
     <description>Recent content in 菜鸟记录 on 冷嘉承</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 17 Nov 2020 00:00:00 +0000</lastBuildDate><atom:link href="/categories/%E8%8F%9C%E9%B8%9F%E8%AE%B0%E5%BD%95/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 08 Jun 2021 00:00:00 +0000</lastBuildDate><atom:link href="/categories/%E8%8F%9C%E9%B8%9F%E8%AE%B0%E5%BD%95/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Using pytorch to solve optimization problem</title>
+      <link>/post/2021/06/08/using-pytorch-to-solve-optimization-problem/</link>
+      <pubDate>Tue, 08 Jun 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2021/06/08/using-pytorch-to-solve-optimization-problem/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>胸部训练记录</title>
       <link>/post/2020/11/17/%E8%83%B8%E9%83%A8%E8%AE%AD%E7%BB%83%E8%AE%B0%E5%BD%95/</link>
