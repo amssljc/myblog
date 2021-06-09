@@ -6,7 +6,16 @@
     <description>Recent content in python skill on 冷嘉承</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 05 Jun 2021 00:00:00 +0000</lastBuildDate><atom:link href="/tags/python-skill/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 09 Jun 2021 00:00:00 +0000</lastBuildDate><atom:link href="/tags/python-skill/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>conda enviroment sharing</title>
+      <link>/post/2021/06/09/conda-enviroment-sharing/</link>
+      <pubDate>Wed, 09 Jun 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2021/06/09/conda-enviroment-sharing/</guid>
+      <description>First, create a .yml file from your source machine.conda env export &amp;gt; environment.ymlCopy it to your target machine.create your environment using .yml file.conda env create -f environment.yml</description>
+    </item>
+    
     <item>
       <title>python快速求解矩阵最小（大）特征值</title>
       <link>/post/2021/06/05/python%E5%BF%AB%E9%80%9F%E6%B1%82%E8%A7%A3%E7%9F%A9%E9%98%B5%E6%9C%80%E5%B0%8F-%E5%A4%A7-%E7%89%B9%E5%BE%81%E5%80%BC/</link>

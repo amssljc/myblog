@@ -6,7 +6,16 @@
     <description>Recent content in Posts on 冷嘉承</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 08 Jun 2021 00:00:00 +0000</lastBuildDate><atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 09 Jun 2021 00:00:00 +0000</lastBuildDate><atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>conda enviroment sharing</title>
+      <link>/post/2021/06/09/conda-enviroment-sharing/</link>
+      <pubDate>Wed, 09 Jun 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2021/06/09/conda-enviroment-sharing/</guid>
+      <description>First, create a .yml file from your source machine.conda env export &amp;gt; environment.ymlCopy it to your target machine.create your environment using .yml file.conda env create -f environment.yml</description>
+    </item>
+    
     <item>
       <title>Using pytorch to solve optimization problem</title>
       <link>/post/2021/06/08/using-pytorch-to-solve-optimization-problem/</link>
