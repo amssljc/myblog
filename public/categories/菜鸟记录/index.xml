@@ -6,6 +6,7 @@
     <description>Recent content in 菜鸟记录 on 冷嘉承</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
+<<<<<<< HEAD
     <lastBuildDate>Sun, 13 Jun 2021 00:00:00 +0000</lastBuildDate><atom:link href="/categories/%E8%8F%9C%E9%B8%9F%E8%AE%B0%E5%BD%95/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>自定义sklearn Estimator以及使用Gridsearch CV</title>
@@ -15,6 +16,26 @@
       <guid>/post/2021/06/13/%E8%87%AA%E5%AE%9A%E4%B9%89sklearn-estimator%E4%BB%A5%E5%8F%8Agridsearch-cv/</guid>
       <description>参考以下链接：
 Developing scikit-learn estimatorsGridsearch CVScoring functionfrom sklearn.model_selection import cross_val_score, GridSearchCVfrom sklearn.metrics import make_scorerfrom sklearn.utils.extmath import fast_logdetfrom sklearn.base import BaseEstimatorclass JointGraphicalLasso(BaseEstimator):def __init__(self,lambda1=0.1,lambda2=0.1):import rpy2import osos.environ[&amp;#39;R_HOME&amp;#39;] = &amp;quot;C:/PROGRA~1/R/R-3.5.1&amp;quot;from rpy2.robjects.packages import importrimport rpy2.robjects.numpy2rirpy2.robjects.numpy2ri.activate()self.JGL = importr(&amp;#39;JGL&amp;#39;)self.lambda1 = lambda1self.lambda2 = lambda2def fit(self, X:np.ndarray, y=None):# assert (self.lambda1 &amp;gt;= 0 and self.lambda2 &amp;gt;= 0), &amp;quot;lambda1 and lambda2 should be &amp;gt; 0.</description>
+=======
+    <lastBuildDate>Wed, 09 Jun 2021 00:00:00 +0000</lastBuildDate><atom:link href="/categories/%E8%8F%9C%E9%B8%9F%E8%AE%B0%E5%BD%95/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>conda enviroment sharing</title>
+      <link>/post/2021/06/09/conda-enviroment-sharing/</link>
+      <pubDate>Wed, 09 Jun 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2021/06/09/conda-enviroment-sharing/</guid>
+      <description>First, create a .yml file from your source machine.conda env export &amp;gt; environment.ymlCopy it to your target machine.create your environment using .yml file.conda env create -f environment.yml</description>
+    </item>
+    
+    <item>
+      <title>Using pytorch to solve optimization problem</title>
+      <link>/post/2021/06/08/using-pytorch-to-solve-optimization-problem/</link>
+      <pubDate>Tue, 08 Jun 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2021/06/08/using-pytorch-to-solve-optimization-problem/</guid>
+      <description>利用pytorch求解最优化问题，可以将最优化问题的目标函数作为Loss进行backward, 所需要求解的最优解设置为YourDeepModel的参数进行更新.
+import torchfrom torch.optim import SGD, Adam, ASGD, LBFGSfrom torch.nn import MSELoss# define your torch modelclass yourDeepModel(torch.nn.Module):def __init__(self, args):super(yourDeepModel, self).__init__()self.x = torch.nn.Parameter(torch.rand(x_dims))passdef forward(self):return # initializationmodel = yourDeepModel()optimizer = LBFGS(model.parameters(), lr=.01)epoch = 1000model.train()for i in range(epoch):def closure():optimizer.zero_grad()optim_value = model()optim_value.backward()return optim_valueoptimizer.step(closure)if i % 10 == 0:print(f&amp;quot;optim value:{closure().item()}&amp;quot;)# print your trainable variableprint(f&amp;quot;optim solution:{model.</description>
+>>>>>>> 485302a649c7706d426d29cc6503d9e21532c4f3
     </item>
     
     <item>

@@ -4,8 +4,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
-    <title>python skill - 冷嘉承</title>
-    <meta property="og:title" content="python skill - 冷嘉承">
+    <title>conda enviroment sharing - 冷嘉承</title>
+    <meta property="og:title" content="conda enviroment sharing - 冷嘉承">
     
     <meta name="twitter:card" content="summary">
 
@@ -23,9 +23,12 @@
     
 
     
-    <link href="/tags/python-skill/index.xml" rel="alternate" type="application/rss+xml" title="冷嘉承" />
     
-    
+
+
+<link href='//cdn.bootcss.com/highlight.js/9.12.0/styles/github.min.css' rel='stylesheet' type='text/css' />
+
+
 
     <link rel="stylesheet" href="/css/style.css" />
     <link rel="stylesheet" href="/css/fonts.css" />
@@ -34,7 +37,7 @@
   </head>
 
   
-  <body class="tags">
+  <body class="post">
     <header class="masthead">
       <h1><a href="/">冷嘉承</a></h1>
 
@@ -67,10 +70,10 @@
     <article class="main">
       <header class="title">
       
-<h1>python skill</h1>
+<h1>conda enviroment sharing</h1>
 
-<h3>
-</h3>
+<h3>Jiacheng Leng
+  /  2021-06-09</h3>
 <hr>
 
 
@@ -81,30 +84,22 @@
 
 
 
+<ol style="list-style-type: decimal">
+<li>First, create a .yml file from your source machine.</li>
+</ol>
+<pre><code>conda env export &gt; environment.yml</code></pre>
+<ol start="2" style="list-style-type: decimal">
+<li>Copy it to your target machine.</li>
+<li>create your environment using .yml file.</li>
+</ol>
+<pre><code>conda env create -f environment.yml
+</code></pre>
 
-<ul>
-  
-  <li>
-<<<<<<< HEAD
-    <span class="date">2021/06/13</span>
-    <a href="/post/2021/06/13/%E8%87%AA%E5%AE%9A%E4%B9%89sklearn-estimator%E4%BB%A5%E5%8F%8Agridsearch-cv/">自定义sklearn Estimator以及使用Gridsearch CV</a>
-=======
-    <span class="date">2021/06/09</span>
-    <a href="/post/2021/06/09/conda-enviroment-sharing/">conda enviroment sharing</a>
->>>>>>> 485302a649c7706d426d29cc6503d9e21532c4f3
-  </li>
-  
-  <li>
-    <span class="date">2021/06/05</span>
-    <a href="/post/2021/06/05/python%E5%BF%AB%E9%80%9F%E6%B1%82%E8%A7%A3%E7%9F%A9%E9%98%B5%E6%9C%80%E5%B0%8F-%E5%A4%A7-%E7%89%B9%E5%BE%81%E5%80%BC/">python快速求解矩阵最小（大）特征值</a>
-  </li>
-  
-</ul>
 
   <footer>
   
 <nav class="post-nav">
-  <span class="nav-prev"></span>
+  <span class="nav-prev">&larr; <a href="/post/2021/06/08/using-pytorch-to-solve-optimization-problem/">Using pytorch to solve optimization problem</a></span>
   <span class="nav-next"></span>
 </nav>
 
@@ -118,6 +113,19 @@
 <script async src="//yihui.org/js/center-img.js"></script>
 
   
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/r.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/yaml.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/tex.min.js"></script>
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
 
   
   <hr>

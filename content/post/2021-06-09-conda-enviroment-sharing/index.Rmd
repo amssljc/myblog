@@ -1,0 +1,23 @@
+---
+title: conda enviroment sharing
+author: Jiacheng Leng
+date: '2021-06-09'
+slug: conda-enviroment-sharing
+categories:
+  - 菜鸟记录
+tags:
+  - python skill
+---
+
+1. First, create a .yml file from your source machine.
+
+```
+conda env export > environment.yml
+```
+
+2. Copy it to your target machine.
+3. create your environment using .yml file.
+
+```
+conda env create -f environment.yml
+```

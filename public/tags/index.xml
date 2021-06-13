@@ -6,13 +6,30 @@
     <description>Recent content in Tags on 冷嘉承</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
+<<<<<<< HEAD
     <lastBuildDate>Sun, 13 Jun 2021 00:00:00 +0000</lastBuildDate><atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>python skill</title>
       <link>/tags/python-skill/</link>
       <pubDate>Sun, 13 Jun 2021 00:00:00 +0000</pubDate>
+=======
+    <lastBuildDate>Wed, 09 Jun 2021 00:00:00 +0000</lastBuildDate><atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>python skill</title>
+      <link>/tags/python-skill/</link>
+      <pubDate>Wed, 09 Jun 2021 00:00:00 +0000</pubDate>
+>>>>>>> 485302a649c7706d426d29cc6503d9e21532c4f3
       
       <guid>/tags/python-skill/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>pytorch</title>
+      <link>/tags/pytorch/</link>
+      <pubDate>Tue, 08 Jun 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/pytorch/</guid>
       <description></description>
     </item>
     

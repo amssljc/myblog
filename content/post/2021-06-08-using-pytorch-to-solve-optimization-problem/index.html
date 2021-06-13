@@ -1,0 +1,46 @@
+---
+title: Using pytorch to solve optimization problem
+author: Jiacheng Leng
+date: '2021-06-08'
+slug: using-pytorch-to-solve-optimization-problem
+categories:
+  - 菜鸟记录
+tags:
+  - pytorch
+---
+
+
+
+<p>利用pytorch求解最优化问题，可以将最优化问题的目标函数作为Loss进行backward, 所需要求解的最优解设置为YourDeepModel的参数进行更新.</p>
+<pre class="python"><code>import torch
+from torch.optim import SGD, Adam, ASGD, LBFGS
+from torch.nn import MSELoss
+
+# define your torch model
+class yourDeepModel(torch.nn.Module):
+    def __init__(self, args):
+        super(yourDeepModel, self).__init__()
+        self.x = torch.nn.Parameter(torch.rand(x_dims))
+        pass
+
+    def forward(self):
+        return 
+
+# initialization
+model = yourDeepModel()
+optimizer = LBFGS(model.parameters(), lr=.01)
+epoch = 1000
+model.train()
+
+for i in range(epoch):
+    def closure():
+        optimizer.zero_grad()
+        optim_value = model()
+        optim_value.backward()
+        return optim_value
+    optimizer.step(closure)
+    if i % 10 == 0:
+        print(f&quot;optim value:{closure().item()}&quot;)
+        # print your trainable variable
+        print(f&quot;optim solution:{model.state_dict()[&#39;x&#39;]}&quot;)
+</code></pre>
