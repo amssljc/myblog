@@ -2,7 +2,7 @@
 title: 自定义sklearn Estimator以及使用Gridsearch CV
 author: Jiacheng Leng
 date: '2021-06-13'
-slug: 自定义sklearn-estimator以及gridsearch-cv
+slug: 自定义sklearn-estimator以使用gridsearch-cv
 categories:
   - 菜鸟记录
 tags:
