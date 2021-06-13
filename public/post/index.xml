@@ -6,7 +6,17 @@
     <description>Recent content in Posts on 冷嘉承</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 05 Jun 2021 00:00:00 +0000</lastBuildDate><atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 13 Jun 2021 00:00:00 +0000</lastBuildDate><atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>自定义sklearn Estimator以及使用Gridsearch CV</title>
+      <link>/post/2021/06/13/%E8%87%AA%E5%AE%9A%E4%B9%89sklearn-estimator%E4%BB%A5%E5%8F%8Agridsearch-cv/</link>
+      <pubDate>Sun, 13 Jun 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2021/06/13/%E8%87%AA%E5%AE%9A%E4%B9%89sklearn-estimator%E4%BB%A5%E5%8F%8Agridsearch-cv/</guid>
+      <description>参考以下链接：
+Developing scikit-learn estimatorsGridsearch CVScoring functionfrom sklearn.model_selection import cross_val_score, GridSearchCVfrom sklearn.metrics import make_scorerfrom sklearn.utils.extmath import fast_logdetfrom sklearn.base import BaseEstimatorclass JointGraphicalLasso(BaseEstimator):def __init__(self,lambda1=0.1,lambda2=0.1):import rpy2import osos.environ[&amp;#39;R_HOME&amp;#39;] = &amp;quot;C:/PROGRA~1/R/R-3.5.1&amp;quot;from rpy2.robjects.packages import importrimport rpy2.robjects.numpy2rirpy2.robjects.numpy2ri.activate()self.JGL = importr(&amp;#39;JGL&amp;#39;)self.lambda1 = lambda1self.lambda2 = lambda2def fit(self, X:np.ndarray, y=None):# assert (self.lambda1 &amp;gt;= 0 and self.lambda2 &amp;gt;= 0), &amp;quot;lambda1 and lambda2 should be &amp;gt; 0.</description>
+    </item>
+    
     <item>
       <title>python快速求解矩阵最小（大）特征值</title>
       <link>/post/2021/06/05/python%E5%BF%AB%E9%80%9F%E6%B1%82%E8%A7%A3%E7%9F%A9%E9%98%B5%E6%9C%80%E5%B0%8F-%E5%A4%A7-%E7%89%B9%E5%BE%81%E5%80%BC/</link>

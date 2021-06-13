@@ -1,0 +1,122 @@
+---
+title: 自定义sklearn Estimator以及使用Gridsearch CV
+author: Jiacheng Leng
+date: '2021-06-13'
+slug: 自定义sklearn-estimator以及gridsearch-cv
+categories:
+  - 菜鸟记录
+tags:
+  - python skill
+---
+
+<link href="{{< relref "post/2021-06-13-自定义sklearn-estimator以及gridsearch-cv/index.html" >}}index_files/anchor-sections/anchor-sections.css" rel="stylesheet" />
+<script src="{{< relref "post/2021-06-13-自定义sklearn-estimator以及gridsearch-cv/index.html" >}}index_files/anchor-sections/anchor-sections.js"></script>
+
+
+<p>参考以下链接：</p>
+<ul>
+<li><a href="https://scikit-learn.org/dev/developers/develop.html">Developing scikit-learn estimators</a></li>
+<li><a href="https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.GridSearchCV.html#sklearn.model_selection.GridSearchCV.get_params">Gridsearch CV</a></li>
+<li><a href="https://scikit-learn.org/stable/modules/model_evaluation.html#scoring">Scoring function</a></li>
+</ul>
+<pre class="python"><code>from sklearn.model_selection import cross_val_score, GridSearchCV
+from sklearn.metrics import make_scorer
+from sklearn.utils.extmath import fast_logdet
+from sklearn.base import BaseEstimator
+
+class JointGraphicalLasso(BaseEstimator):
+    def __init__(self,lambda1=0.1,lambda2=0.1):
+        import rpy2
+        import os
+        os.environ[&#39;R_HOME&#39;] = &quot;C:/PROGRA~1/R/R-3.5.1&quot;
+        from rpy2.robjects.packages import importr
+        import rpy2.robjects.numpy2ri
+        rpy2.robjects.numpy2ri.activate()
+        self.JGL = importr(&#39;JGL&#39;)
+        self.lambda1 = lambda1
+        self.lambda2 = lambda2
+        
+    def fit(self, X:np.ndarray, y=None):
+        
+        # assert (self.lambda1 &gt;= 0 and self.lambda2 &gt;= 0), &quot;lambda1 and lambda2 should be &gt; 0.&quot;
+        assert isinstance(X, np.ndarray), &quot;X should be an array with shape(2, n, p).&quot;
+        X = np.transpose(X,(1,0,2))
+        X = [X_ for X_ in X]
+        result = self.JGL.JGL(X, lambda1=self.lambda1,
+                         lambda2=self.lambda2, return_whole_theta=True)
+        self.precision1 = result[0][0]
+        self.precision2 = result[0][1]
+        self.delta = self.precision1 - self.precision2
+        return self
+    
+    def get_params(self, deep=True):
+        return {
+                &#39;lambda1&#39;: self.lambda1,
+                &#39;lambda2&#39;: self.lambda2
+                }
+    
+    def set_params(self, **params):
+        for parameter, value in params.items():
+            setattr(self, parameter, value)
+        return self
+    
+    def score(self,X,y = None):
+        X = np.transpose(X,(1,0,2))
+        cov1 = np.cov(X[0].T)
+        cov2 = np.cov(X[1].T)
+        precision1 = self.precision1
+        precision2 = self.precision2
+        p = precision1.shape[0]
+        log_likelihood_ = - np.sum(cov1 * precision1) + fast_logdet(precision1)
+        log_likelihood_ += - np.sum(cov2 * precision2) + fast_logdet(precision2)
+        log_likelihood_ -= p * np.log(2 * np.pi)
+        log_likelihood_ /= 2.
+        
+        return log_likelihood_
+
+
+class JointGraphicalLassoCV(JointGraphicalLasso):
+    def __init__(self, grid_len = 5, verbose = 0, n_refinement = 4):
+        super(JointGraphicalLassoCV,self).__init__()
+        self.grid_len = grid_len
+        self.verbose = verbose
+        self.n_refinement = n_refinement
+        self.lambda1_max = 10
+        self.lambda2_max = 10
+        self.lambda1_min = 1e-3
+        self.lambda2_min = 1e-3
+        #JGL
+        import rpy2
+        import os
+        os.environ[&#39;R_HOME&#39;] = &quot;C:/PROGRA~1/R/R-3.5.1&quot;
+        from rpy2.robjects.packages import importr
+        import rpy2.robjects.numpy2ri
+        rpy2.robjects.numpy2ri.activate()
+        self.JGL = importr(&#39;JGL&#39;)
+        
+    def fit(self, X, y=None):
+        
+        
+        for i in range(self.n_refinement):
+            self.param_grid = {
+                &#39;lambda1&#39;: np.logspace(np.log10(self.lambda1_min), np.log10(self.lambda1_max), self.grid_len),
+                &#39;lambda2&#39;: np.logspace(np.log10(self.lambda2_min), np.log10(self.lambda2_max), self.grid_len),
+                }
+            self.cv = GridSearchCV(JointGraphicalLasso(), param_grid = self.param_grid, verbose=self.verbose)
+            self.cv.fit(X, y)
+            self.index = self.cv.cv_results_[&#39;rank_test_score&#39;]
+            self.best_params = self.cv.best_params_
+            self.lambda1_min = self.best_params[&#39;lambda1&#39;]/2
+            self.lambda1_max = self.best_params[&#39;lambda1&#39;]*2
+            self.lambda2_min = self.best_params[&#39;lambda2&#39;]/2
+            self.lambda2_max = self.best_params[&#39;lambda2&#39;]*2
+            
+        X = np.transpose(X,(1,0,2))
+        X = [X_ for X_ in X]
+        result = self.JGL.JGL(X, lambda1=self.best_params[&#39;lambda1&#39;],
+                         lambda2=self.best_params[&#39;lambda2&#39;], return_whole_theta=True)
+        self.precision1 = result[0][0]
+        self.precision2 = result[0][1]
+        self.delta = self.precision1 - self.precision2
+        
+        return self</code></pre>
