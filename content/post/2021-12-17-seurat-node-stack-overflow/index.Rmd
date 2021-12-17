@@ -1,0 +1,27 @@
+---
+title: Seurat 中关于 ‘node stack overflow’的错误
+author: Jiacheng Leng
+date: '2021-12-17'
+slug: seurat-node-stack-overflow
+categories:
+  - 菜鸟记录
+tags:
+  - Rstudio
+---
+
+当我运行以下代码时:
+```r
+seurat.anchors <- FindIntegrationAnchors(object.list = seurat_list, anchor.features = features,reference = 10)
+seurat.intergrated <- IntegrateData(anchorset = seurat.anchors)
+```
+会发生错误:
+```
+Finding integration vector weights
+Error: node stack overflow
+Error during wrapup: node stack overflow
+Error: no more error handlers available (recursive errors?); invoking 'abort' restart
+```
+这似乎是由于引用了Rfast包，总结如下解决方案：
+
+1. 在所有Find Nearest Neighbor 的方法中将设置 `nn.method = 'rann'`;
+2. 重启R, `unloadNamespace('Rfast')`.

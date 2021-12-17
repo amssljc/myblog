@@ -6,7 +6,19 @@
     <description>Recent content in 菜鸟记录 on 冷嘉承</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 13 Jun 2021 00:00:00 +0000</lastBuildDate><atom:link href="/categories/%E8%8F%9C%E9%B8%9F%E8%AE%B0%E5%BD%95/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 17 Dec 2021 00:00:00 +0000</lastBuildDate><atom:link href="/categories/%E8%8F%9C%E9%B8%9F%E8%AE%B0%E5%BD%95/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Seurat 中关于 ‘node stack overflow’的错误</title>
+      <link>/post/2021/12/17/seurat-node-stack-overflow/</link>
+      <pubDate>Fri, 17 Dec 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2021/12/17/seurat-node-stack-overflow/</guid>
+      <description>当我运行以下代码时:
+seurat.anchors &amp;lt;- FindIntegrationAnchors(object.list = seurat_list, anchor.features = features,reference = 10)seurat.intergrated &amp;lt;- IntegrateData(anchorset = seurat.anchors)会发生错误:
+Finding integration vector weightsError: node stack overflowError during wrapup: node stack overflowError: no more error handlers available (recursive errors?); invoking &amp;#39;abort&amp;#39; restart这似乎是由于引用了Rfast包，总结如下解决方案：
+在所有Find Nearest Neighbor 的方法中将设置 nn.method = &#39;rann&#39;;重启R, unloadNamespace(&#39;Rfast&#39;).</description>
+    </item>
+    
     <item>
       <title>自定义sklearn Estimator以及使用Gridsearch CV</title>
       <link>/post/2021/06/13/%E8%87%AA%E5%AE%9A%E4%B9%89sklearn-estimator%E4%BB%A5%E4%BD%BF%E7%94%A8gridsearch-cv/</link>

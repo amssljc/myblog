@@ -4,8 +4,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
-    <title>python快速求解矩阵最小（大）特征值 - 冷嘉承</title>
-    <meta property="og:title" content="python快速求解矩阵最小（大）特征值 - 冷嘉承">
+    <title>Seurat 中关于 ‘node stack overflow’的错误 - 冷嘉承</title>
+    <meta property="og:title" content="Seurat 中关于 ‘node stack overflow’的错误 - 冷嘉承">
     
     <meta name="twitter:card" content="summary">
 
@@ -15,8 +15,10 @@
 
     
       
-      <meta property="description" content="from generate_data import *from scipy.sparse.linalg import eigshfrom numpy.linalg import eighfrom time import time# 生成一个实对称矩阵theta1 = generate_theta1(500,&amp;#39;BA&amp;#39;,0.1)time1 = time()for i in &amp;hellip;">
-      <meta property="og:description" content="from generate_data import *from scipy.sparse.linalg import eigshfrom numpy.linalg import eighfrom time import time# 生成一个实对称矩阵theta1 = generate_theta1(500,&amp;#39;BA&amp;#39;,0.1)time1 = time()for i in &amp;hellip;">
+      <meta property="description" content="当我运行以下代码时:
+seurat.anchors &amp;lt;- FindIntegrationAnchors(object.list = seurat_list, anchor.features = features,reference = 10)seurat.intergrated &amp;lt;- IntegrateData(anchorset = seurat.anchors)会发生错误: &amp;hellip;">
+      <meta property="og:description" content="当我运行以下代码时:
+seurat.anchors &amp;lt;- FindIntegrationAnchors(object.list = seurat_list, anchor.features = features,reference = 10)seurat.intergrated &amp;lt;- IntegrateData(anchorset = seurat.anchors)会发生错误: &amp;hellip;">
       
     
 
@@ -73,10 +75,10 @@
     <article class="main">
       <header class="title">
       
-<h1>python快速求解矩阵最小（大）特征值</h1>
+<h1>Seurat 中关于 ‘node stack overflow’的错误</h1>
 
 <h3>Jiacheng Leng
-  /  2021-06-05</h3>
+  /  2021-12-17</h3>
 <hr>
 
 
@@ -85,40 +87,29 @@
 
 
 
-<link href="/post/2021/06/05/python%E5%BF%AB%E9%80%9F%E6%B1%82%E8%A7%A3%E7%9F%A9%E9%98%B5%E6%9C%80%E5%B0%8F-%E5%A4%A7-%E7%89%B9%E5%BE%81%E5%80%BC/index_files/anchor-sections/anchor-sections.css" rel="stylesheet" />
-<script src="/post/2021/06/05/python%E5%BF%AB%E9%80%9F%E6%B1%82%E8%A7%A3%E7%9F%A9%E9%98%B5%E6%9C%80%E5%B0%8F-%E5%A4%A7-%E7%89%B9%E5%BE%81%E5%80%BC/index_files/anchor-sections/anchor-sections.js"></script>
+<script src="/post/2021/12/17/seurat-node-stack-overflow/index_files/header-attrs/header-attrs.js"></script>
 
 
-<pre class="python"><code>from generate_data import *
-from scipy.sparse.linalg import eigsh
-from numpy.linalg import eigh
-from time import time
-
-# 生成一个实对称矩阵
-theta1  = generate_theta1(500,&#39;BA&#39;,0.1)
-
-time1 = time()
-for i in range(20):
-    # &#39;SA&#39; small algebra eigenvalues
-    eigsh(theta1,which=&#39;SA&#39;,return_eigenvectors=False,k=1)
-    
-time2 = time()
-print(time2-time1)
-time1 = time()
-for i in range(20):
-    min(eigh(theta1)[0])
-time2 = time()
-print(time2-time1)</code></pre>
-<p>Output:</p>
-<pre><code>0.15729713439941406
-0.6559879779815674</code></pre>
+<p>当我运行以下代码时:</p>
+<pre class="r"><code>seurat.anchors &lt;- FindIntegrationAnchors(object.list = seurat_list, anchor.features = features,reference = 10)
+seurat.intergrated &lt;- IntegrateData(anchorset = seurat.anchors)</code></pre>
+<p>会发生错误:</p>
+<pre><code>Finding integration vector weights
+Error: node stack overflow
+Error during wrapup: node stack overflow
+Error: no more error handlers available (recursive errors?); invoking &#39;abort&#39; restart</code></pre>
+<p>这似乎是由于引用了Rfast包，总结如下解决方案：</p>
+<ol style="list-style-type: decimal">
+<li>在所有Find Nearest Neighbor 的方法中将设置 <code>nn.method = 'rann'</code>;</li>
+<li>重启R, <code>unloadNamespace('Rfast')</code>.</li>
+</ol>
 
 
   <footer>
   
 <nav class="post-nav">
-  <span class="nav-prev">&larr; <a href="/post/2020/11/28/rstudio%E6%9B%B4%E6%94%B9%E5%85%89%E6%A0%87%E9%A2%9C%E8%89%B2/">Rstudio更改光标颜色</a></span>
-  <span class="nav-next"><a href="/post/2021/06/08/using-pytorch-to-solve-optimization-problem/">Using pytorch to solve optimization problem</a> &rarr;</span>
+  <span class="nav-prev">&larr; <a href="/post/2021/06/13/%E8%87%AA%E5%AE%9A%E4%B9%89sklearn-estimator%E4%BB%A5%E4%BD%BF%E7%94%A8gridsearch-cv/">自定义sklearn Estimator以及使用Gridsearch CV</a></span>
+  <span class="nav-next"></span>
 </nav>
 
 
