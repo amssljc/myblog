@@ -22,10 +22,10 @@
       <pubDate>Fri, 17 Dec 2021 00:00:00 +0000</pubDate>
       
       <guid>/post/2021/12/17/seurat-node-stack-overflow/</guid>
-      <description>当我运行以下代码时:
-seurat.anchors &amp;lt;- FindIntegrationAnchors(object.list = seurat_list, anchor.features = features,reference = 10)seurat.intergrated &amp;lt;- IntegrateData(anchorset = seurat.anchors)会发生错误:
-Finding integration vector weightsError: node stack overflowError during wrapup: node stack overflowError: no more error handlers available (recursive errors?); invoking &amp;#39;abort&amp;#39; restart这似乎是由于引用了Rfast包，总结如下解决方案：
-在所有Find Nearest Neighbor 的方法中将设置 nn.method = &#39;rann&#39;;重启R, unloadNamespace(&#39;Rfast&#39;).</description>
+      <description>  当我运行以下代码时:
+seurat.anchors &amp;lt;- FindIntegrationAnchors(object.list = seurat_list, anchor.features = features,reference = 10) seurat.intergrated &amp;lt;- IntegrateData(anchorset = seurat.anchors) 会发生错误:
+Finding integration vector weights Error: node stack overflow Error during wrapup: node stack overflow Error: no more error handlers available (recursive errors?); invoking &amp;#39;abort&amp;#39; restart 这似乎是由于引用了Rfast包，总结如下解决方案：
+在所有Find Nearest Neighbor 的方法中将设置 nn.method = &#39;rann&#39;; 重启R, unloadNamespace(&#39;Rfast&#39;).  </description>
     </item>
     
     <item>
@@ -35,7 +35,7 @@ Finding integration vector weightsError: node stack overflowError during wrapu
       
       <guid>/post/2021/06/13/%E8%87%AA%E5%AE%9A%E4%B9%89sklearn-estimator%E4%BB%A5%E4%BD%BF%E7%94%A8gridsearch-cv/</guid>
       <description>参考以下链接：
-Developing scikit-learn estimatorsGridsearch CVScoring functionfrom sklearn.model_selection import cross_val_score, GridSearchCVfrom sklearn.metrics import make_scorerfrom sklearn.utils.extmath import fast_logdetfrom sklearn.base import BaseEstimatorclass JointGraphicalLasso(BaseEstimator):def __init__(self,lambda1=0.1,lambda2=0.1):import rpy2import osos.environ[&amp;#39;R_HOME&amp;#39;] = &amp;quot;C:/PROGRA~1/R/R-3.5.1&amp;quot;from rpy2.robjects.packages import importrimport rpy2.robjects.numpy2rirpy2.robjects.numpy2ri.activate()self.JGL = importr(&amp;#39;JGL&amp;#39;)self.lambda1 = lambda1self.lambda2 = lambda2def fit(self, X:np.ndarray, y=None):# assert (self.lambda1 &amp;gt;= 0 and self.lambda2 &amp;gt;= 0), &amp;quot;lambda1 and lambda2 should be &amp;gt; 0.</description>
+ Developing scikit-learn estimators Gridsearch CV Scoring function  from sklearn.model_selection import cross_val_score, GridSearchCV from sklearn.metrics import make_scorer from sklearn.utils.extmath import fast_logdet from sklearn.base import BaseEstimator class JointGraphicalLasso(BaseEstimator): def __init__(self,lambda1=0.1,lambda2=0.1): import rpy2 import os os.environ[&amp;#39;R_HOME&amp;#39;] = &amp;quot;C:/PROGRA~1/R/R-3.5.1&amp;quot; from rpy2.robjects.packages import importr import rpy2.robjects.numpy2ri rpy2.robjects.numpy2ri.activate() self.JGL = importr(&amp;#39;JGL&amp;#39;) self.lambda1 = lambda1 self.lambda2 = lambda2 def fit(self, X:np.ndarray, y=None): # assert (self.lambda1 &amp;gt;= 0 and self.lambda2 &amp;gt;= 0), &amp;quot;lambda1 and lambda2 should be &amp;gt; 0.</description>
     </item>
     
     <item>
@@ -44,7 +44,7 @@ Finding integration vector weightsError: node stack overflowError during wrapu
       <pubDate>Wed, 09 Jun 2021 00:00:00 +0000</pubDate>
       
       <guid>/post/2021/06/09/conda-enviroment-sharing/</guid>
-      <description>First, create a .yml file from your source machine.conda env export &amp;gt; environment.ymlCopy it to your target machine.create your environment using .yml file.conda env create -f environment.yml</description>
+      <description> First, create a .yml file from your source machine.  conda env export &amp;gt; environment.yml Copy it to your target machine. create your environment using .yml file.  conda env create -f environment.yml  </description>
     </item>
     
     <item>
@@ -54,7 +54,7 @@ Finding integration vector weightsError: node stack overflowError during wrapu
       
       <guid>/post/2021/06/08/using-pytorch-to-solve-optimization-problem/</guid>
       <description>利用pytorch求解最优化问题，可以将最优化问题的目标函数作为Loss进行backward, 所需要求解的最优解设置为YourDeepModel的参数进行更新.
-import torchfrom torch.optim import SGD, Adam, ASGD, LBFGSfrom torch.nn import MSELoss# define your torch modelclass yourDeepModel(torch.nn.Module):def __init__(self, args):super(yourDeepModel, self).__init__()self.x = torch.nn.Parameter(torch.rand(x_dims))passdef forward(self):return # initializationmodel = yourDeepModel()optimizer = LBFGS(model.parameters(), lr=.01)epoch = 1000model.train()for i in range(epoch):def closure():optimizer.zero_grad()optim_value = model()optim_value.backward()return optim_valueoptimizer.step(closure)if i % 10 == 0:print(f&amp;quot;optim value:{closure().item()}&amp;quot;)# print your trainable variableprint(f&amp;quot;optim solution:{model.</description>
+import torch from torch.optim import SGD, Adam, ASGD, LBFGS from torch.nn import MSELoss # define your torch model class yourDeepModel(torch.nn.Module): def __init__(self, args): super(yourDeepModel, self).__init__() self.x = torch.nn.Parameter(torch.rand(x_dims)) pass def forward(self): return # initialization model = yourDeepModel() optimizer = LBFGS(model.parameters(), lr=.01) epoch = 1000 model.train() for i in range(epoch): def closure(): optimizer.zero_grad() optim_value = model() optim_value.backward() return optim_value optimizer.step(closure) if i % 10 == 0: print(f&amp;quot;optim value:{closure().item()}&amp;quot;) # print your trainable variable print(f&amp;quot;optim solution:{model.</description>
     </item>
     
     <item>
@@ -63,8 +63,8 @@ import torchfrom torch.optim import SGD, Adam, ASGD, LBFGSfrom torch.nn import
       <pubDate>Sat, 05 Jun 2021 00:00:00 +0000</pubDate>
       
       <guid>/post/2021/06/05/python%E5%BF%AB%E9%80%9F%E6%B1%82%E8%A7%A3%E7%9F%A9%E9%98%B5%E6%9C%80%E5%B0%8F-%E5%A4%A7-%E7%89%B9%E5%BE%81%E5%80%BC/</guid>
-      <description>from generate_data import *from scipy.sparse.linalg import eigshfrom numpy.linalg import eighfrom time import time# 生成一个实对称矩阵theta1 = generate_theta1(500,&amp;#39;BA&amp;#39;,0.1)time1 = time()for i in range(20):# &amp;#39;SA&amp;#39; small algebra eigenvalueseigsh(theta1,which=&amp;#39;SA&amp;#39;,return_eigenvectors=False,k=1)time2 = time()print(time2-time1)time1 = time()for i in range(20):min(eigh(theta1)[0])time2 = time()print(time2-time1)Output:
-0.157297134399414060.6559879779815674</description>
+      <description>  from generate_data import * from scipy.sparse.linalg import eigsh from numpy.linalg import eigh from time import time # 生成一个实对称矩阵 theta1 = generate_theta1(500,&amp;#39;BA&amp;#39;,0.1) time1 = time() for i in range(20): # &amp;#39;SA&amp;#39; small algebra eigenvalues eigsh(theta1,which=&amp;#39;SA&amp;#39;,return_eigenvectors=False,k=1) time2 = time() print(time2-time1) time1 = time() for i in range(20): min(eigh(theta1)[0]) time2 = time() print(time2-time1) Output:
+0.15729713439941406 0.6559879779815674 </description>
     </item>
     
     <item>
@@ -74,9 +74,9 @@ import torchfrom torch.optim import SGD, Adam, ASGD, LBFGSfrom torch.nn import
       
       <guid>/post/2020/11/28/rstudio%E6%9B%B4%E6%94%B9%E5%85%89%E6%A0%87%E9%A2%9C%E8%89%B2/</guid>
       <description>打开
-Yourpath2Rstudio\RStudio\resources\themes\yourtheme.rstheme
-更改以下代码的颜色部分即可。
-.ace_cursor,.ace_string.ace_regexp {color: #f5999c #光标颜色}虽然格式是.rstheme,但是是用css的编码方式编写的。</description>
+ Yourpath2Rstudio\RStudio\resources\themes\yourtheme.rstheme
+ 更改以下代码的颜色部分即可。
+.ace_cursor, .ace_string.ace_regexp { color: #f5999c #光标颜色 } 虽然格式是.rstheme,但是是用css的编码方式编写的。</description>
     </item>
     
     <item>
@@ -85,10 +85,10 @@ import torchfrom torch.optim import SGD, Adam, ASGD, LBFGSfrom torch.nn import
       <pubDate>Fri, 20 Nov 2020 00:00:00 +0000</pubDate>
       
       <guid>/post/2020/11/20/automation-of-cytoscape-using-r/</guid>
-      <description>Preface经过我的一番摸索，终于搞明白了，这个R包本身说明并不详细，具体参数基本全靠猜，当然我还参考了Cytoscape automation in R using Rcy3(仅仅参考了一行代码)，累死我了- -！
-1. 安装R包“RCy3”if (!requireNamespace(&amp;quot;BiocManager&amp;quot;, quietly = TRUE))install.packages(&amp;quot;BiocManager&amp;quot;)BiocManager::install(&amp;quot;RCy3&amp;quot;)2. 调用函数cyrestPOST本文以Cytoscape中的Reactome FI Apps中的“Gene Set/Mutation Analysis”功能生成网络图，并导出为csv文件为例具体讲解自动化(Automation)流程。
+      <description>Preface 经过我的一番摸索，终于搞明白了，这个R包本身说明并不详细，具体参数基本全靠猜，当然我还参考了Cytoscape automation in R using Rcy3(仅仅参考了一行代码)，累死我了- -！
+1. 安装R包“RCy3” if (!requireNamespace(&amp;quot;BiocManager&amp;quot;, quietly = TRUE)) install.packages(&amp;quot;BiocManager&amp;quot;) BiocManager::install(&amp;quot;RCy3&amp;quot;)  2. 调用函数cyrestPOST 本文以Cytoscape中的Reactome FI Apps中的“Gene Set/Mutation Analysis”功能生成网络图，并导出为csv文件为例具体讲解自动化(Automation)流程。
 废话不多说，直接导入下面代码，并修改相应的path
-library(RCy3)filename.input &amp;lt;- &amp;#39;path.of.your.input.file&amp;#39;filename.output &amp;lt;- &amp;#39;path.of.your.output.file&amp;#39;)body.reactome &amp;lt;- list(fiVersion = &amp;#39;2019&amp;#39;, # Reactome FI Networks Version, 不同版本结果不同format = &amp;#39;GeneSet&amp;#39;, # Specify formatfile = filename.input, # 对应的是GUI中的 Choose data file：enteredGenes = &amp;#39;null&amp;#39;, # 对应的是GUI中的 Or enter gene set：chooseHomoGenes = FALSE,useLinkers = FALSE, # 对应的是GUI中的 Use linker genes：showUnlinked = FALSE, # 对应的是GUI中的 Show genes not linked to others：fetchFIAnnotations = TRUE, # 对应的是GUI中的 Fetch FI annotations：sampleCutoffValue = &amp;#39;4&amp;#39;)body.</description>
+library(RCy3) filename.input &amp;lt;- &amp;#39;path.of.your.input.file&amp;#39; filename.output &amp;lt;- &amp;#39;path.of.your.output.file&amp;#39; ) body.reactome &amp;lt;- list( fiVersion = &amp;#39;2019&amp;#39;, # Reactome FI Networks Version, 不同版本结果不同 format = &amp;#39;GeneSet&amp;#39;, # Specify format file = filename.input, # 对应的是GUI中的 Choose data file： enteredGenes = &amp;#39;null&amp;#39;, # 对应的是GUI中的 Or enter gene set： chooseHomoGenes = FALSE, useLinkers = FALSE, # 对应的是GUI中的 Use linker genes： showUnlinked = FALSE, # 对应的是GUI中的 Show genes not linked to others： fetchFIAnnotations = TRUE, # 对应的是GUI中的 Fetch FI annotations： sampleCutoffValue = &amp;#39;4&amp;#39; ) body.</description>
     </item>
     
     <item>
@@ -97,7 +97,7 @@ library(RCy3)filename.input &amp;lt;- &amp;#39;path.of.your.input.file&amp;#39;
       <pubDate>Fri, 20 Nov 2020 00:00:00 +0000</pubDate>
       
       <guid>/post/2020/11/20/pdd%E6%9C%BA%E6%A2%B0%E9%9D%A9%E5%91%BD%E7%99%BD%E8%9B%9F%E9%BE%99p-%E5%AE%89%E5%85%A8%E4%B8%8B%E8%BD%A6/</guid>
-      <description>旧电脑鲁大师跑分新电脑鲁大师跑分硬件信息本来以为显示屏是奇美的，没想到发了个京东方，美滋滋！CPU信息看着这核心数量，通道数量，爽的一批！</description>
+      <description>  旧电脑鲁大师跑分  新电脑鲁大师跑分  硬件信息  本来以为显示屏是奇美的，没想到发了个京东方，美滋滋！   CPU信息  看着这核心数量，通道数量，爽的一批！   </description>
     </item>
     
     <item>
@@ -106,8 +106,8 @@ library(RCy3)filename.input &amp;lt;- &amp;#39;path.of.your.input.file&amp;#39;
       <pubDate>Tue, 17 Nov 2020 00:00:00 +0000</pubDate>
       
       <guid>/post/2020/11/17/%E8%83%B8%E9%83%A8%E8%AE%AD%E7%BB%83%E8%AE%B0%E5%BD%95/</guid>
-      <description>胸部训练平板卧推 空杆 20kg*20 + 25kg*12 + 30kg*12 +30kg*6+25kg* 6 = 1390kg上斜卧推 25kg*[12 + 10 + (6+4)] = 550kg哑铃夹胸 16kg*12 + 20kg*(2*12 + 10) = 872kg蝴蝶机夹胸 10kg*4*12 = 480kg游泳 12*25m = 300m训练总容量：1390 + 550 + 872 + 480 = 3292kg
-</description>
+      <description>  胸部训练  平板卧推 空杆 20kg*20 + 25kg*12 + 30kg*12 +30kg*6+25kg* 6 = 1390kg 上斜卧推 25kg*[12 + 10 + (6+4)] = 550kg 哑铃夹胸 16kg*12 + 20kg*(2*12 + 10) = 872kg 蝴蝶机夹胸 10kg*4*12 = 480kg 游泳 12*25m = 300m  训练总容量：1390 + 550 + 872 + 480 = 3292kg
+ </description>
     </item>
     
     <item>
@@ -127,19 +127,19 @@ library(RCy3)filename.input &amp;lt;- &amp;#39;path.of.your.input.file&amp;#39;
       
       <guid>/post/2020/11/02/%E5%88%A9%E7%94%A8tcga%E7%9A%84mrna%E8%A1%A8%E8%BE%BE%E6%95%B0%E6%8D%AE%E5%81%9A%E7%94%9F%E5%AD%98%E5%88%86%E6%9E%90/</guid>
       <description>数据下载
-可以从各大网站寻找方法，本文重点在于得到数据后的分析。这一步之后应到得到的数据有：基因表达数据
+可以从各大网站寻找方法，本文重点在于得到数据后的分析。 这一步之后应到得到的数据有：  基因表达数据
 这一步需要用程序批量处理整合成表达矩阵，并且注意区分正常样本和病变样本。
-clinical临床数据
+ clinical临床数据
 数据结构如图：
-数据整理
+  数据整理
 这一步我们需要至少从中提取出4个变量提供给下游分析，分别是病例ID，生存状态，以及与生存时间相关的两个变量。具体变量的解释可以查看官方文档。
-clinical.data &amp;lt;- read.csv(&amp;#39;../Realdata/clinical.tsv&amp;#39;, sep = &amp;#39;\t&amp;#39;)clinical.data.select &amp;lt;-clinical.data[, c(&amp;#39;case_submitter_id&amp;#39;,&amp;#39;vital_status&amp;#39;,&amp;#39;days_to_death&amp;#39;,&amp;#39;days_to_last_follow_up&amp;#39;)]病例ID用来和表达数据一一对应，并且同时得到目标基因的表达水平，高于均值为高表达，记为1，反之0；
-生存状态用判断是否为删失数据，记censored=1，dead=2；
-生存时间就是横轴信息；
+   clinical.data &amp;lt;- read.csv(&amp;#39;../Realdata/clinical.tsv&amp;#39;, sep = &amp;#39;\t&amp;#39;) clinical.data.select &amp;lt;- clinical.data[, c(&amp;#39;case_submitter_id&amp;#39;, &amp;#39;vital_status&amp;#39;, &amp;#39;days_to_death&amp;#39;, &amp;#39;days_to_last_follow_up&amp;#39;)]  病例ID用来和表达数据一一对应，并且同时得到目标基因的表达水平，高于均值为高表达，记为1，反之0；
+ 生存状态用判断是否为删失数据，记censored=1，dead=2；
+ 生存时间就是横轴信息；
 得到的数据结构如图：
 其中case_id应该为TCGA的ID。
-生存分析
-library(&amp;#39;survival&amp;#39;)library(&amp;#39;survminer&amp;#39;)fit &amp;lt;- survfit(Surv(time, status) ~ expression_level , data = clinical.data.select)ggsurvplot(fit,pval = TRUE, pval.method = TRUE,surv.median.line = &amp;quot;hv&amp;quot;, # Specify median survivalggtheme = theme_bw(), # Change ggplot2 themepalette = c(&amp;quot;#E7B800&amp;quot;, &amp;quot;#2E9FDF&amp;quot;) ,legend.</description>
+  生存分析
+  library(&amp;#39;survival&amp;#39;) library(&amp;#39;survminer&amp;#39;) fit &amp;lt;- survfit(Surv(time, status) ~ expression_level , data = clinical.data.select) ggsurvplot(fit, pval = TRUE, pval.method = TRUE, surv.median.line = &amp;quot;hv&amp;quot;, # Specify median survival ggtheme = theme_bw(), # Change ggplot2 theme palette = c(&amp;quot;#E7B800&amp;quot;, &amp;quot;#2E9FDF&amp;quot;) , legend.</description>
     </item>
     
     <item>
@@ -148,36 +148,22 @@ library(RCy3)filename.input &amp;lt;- &amp;#39;path.of.your.input.file&amp;#39;
       <pubDate>Wed, 28 Oct 2020 00:00:00 +0000</pubDate>
       
       <guid>/post/2020/10/28/%E5%B0%8F%E5%8F%AF%E7%88%B1%E5%88%B6%E5%AE%9A%E7%9A%84%E8%AE%AD%E7%BB%83%E8%AE%A1%E5%88%92/</guid>
-      <description>新手折磨计划背部训练热身 跑步机 3~5分钟 身体热起来即可激活 平板支撑 1组60s
+      <description>新手折磨计划 背部训练  热身 跑步机 3~5分钟 身体热起来即可 激活 平板支撑 1组60s
 俯身“T”“W” 2组一组20
-正式动作硬拉
+ 正式动作 硬拉
 热身空杠 15
 自身合适重量 12~15 总共三组 每组间隔休息1分钟
-引体向上
+ 引体向上
 有固定器械，膝盖跪在上面，重量插的越大越轻松 12~15 三组，组间休息60S
-坐姿划船
-如果固定器械被占了可替换杠铃俯身划船或者哑铃俯身划船12-15 三组 组间休息60S
-高位下拉
+ 坐姿划船
+如果固定器械被占了可替换杠铃俯身划船或者哑铃俯身划船 12-15 三组 组间休息60S
+ 高位下拉
 12-15 三组 组间休息60S
-绳索下压
+ 绳索下压
 12-15 三组 组间休息60S
-Additions
-反向蝴蝶机 三组 一组12个 组间60S单臂哑铃划船 三组 一组12个 组间60S山羊挺身 三组 一组12个 组间60S记得拉伸PS:目标是肌肥大的话，最好一组12个
-胸部训练热身 跑步机 3~5分钟 身体热起来即可</description>
-    </item>
-    
-    <item>
-      <title>简单的快乐</title>
-      <link>/post/2020/10/24/%E7%AE%80%E5%8D%95%E7%9A%84%E5%BF%AB%E4%B9%90/</link>
-      <pubDate>Sat, 24 Oct 2020 00:00:00 +0000</pubDate>
-      
-      <guid>/post/2020/10/24/%E7%AE%80%E5%8D%95%E7%9A%84%E5%BF%AB%E4%B9%90/</guid>
-      <description>有时候，
-心情不好的时候，
-一碗板面，
-一瓣蒜，
-快乐就是这么简单！
-</description>
+ Additions
+   反向蝴蝶机 三组 一组12个 组间60S 单臂哑铃划船 三组 一组12个 组间60S 山羊挺身 三组 一组12个 组间60S  记得拉伸  PS:目标是肌肥大的话，最好一组12个
+ 胸部训练  热身 跑步机 3~5分钟 身体热起来即可</description>
     </item>
     
     <item>
@@ -187,9 +173,9 @@ library(RCy3)filename.input &amp;lt;- &amp;#39;path.of.your.input.file&amp;#39;
       
       <guid>/post/2020/10/22/ensembl-id-%E7%9A%84%E8%A7%A3%E9%87%8A/</guid>
       <description>Ensembl ID 的解释：
-For example ENSMUSG00000017167.6. From this we can see that it’s an Ensembl ID (ENS), from mouse (MUS), it’s a gene (G) and it’s on its sixth version (.6).
-ENSGR 的解释：
-The Ensembl ids, by convention, are made of a species index (“ENS” for human and “ENSMUS” for mouse) followed by a feature type indicator (“G” for gene, “T” for transcript, “E” for exon, “P” for translation) and an 11-number figure.</description>
+ For example ENSMUSG00000017167.6. From this we can see that it’s an Ensembl ID (ENS), from mouse (MUS), it’s a gene (G) and it’s on its sixth version (.6).
+ ENSGR 的解释：
+ The Ensembl ids, by convention, are made of a species index (“ENS” for human and “ENSMUS” for mouse) followed by a feature type indicator (“G” for gene, “T” for transcript, “E” for exon, “P” for translation) and an 11-number figure.</description>
     </item>
     
     <item>
@@ -198,109 +184,11 @@ library(RCy3)filename.input &amp;lt;- &amp;#39;path.of.your.input.file&amp;#39;
       <pubDate>Thu, 22 Oct 2020 00:00:00 +0000</pubDate>
       
       <guid>/post/2020/10/22/%E5%B0%86excel%E6%95%B0%E6%8D%AE%E5%AF%BC%E5%85%A5r/</guid>
-      <description>方法一：
-打开excel，将你要导入的数据复制到剪切板(‘clipboard’)输入以下R代码（我惊了！！还能这么操作！）my_data &amp;lt;- read.table(file = &amp;quot;clipboard&amp;quot;, sep = &amp;quot;\t&amp;quot;, header=TRUE)方法二：
-安装‘readxl’包输入以下代码（比较常规）：# Loadinglibrary(&amp;quot;readxl&amp;quot;)# xls filesmy_data &amp;lt;- read_excel(&amp;quot;my_file.xls&amp;quot;)# xlsx filesmy_data &amp;lt;- read_excel(&amp;quot;my_file.xlsx&amp;quot;)同时可以指定sheet：
-# Specify sheet by its namemy_data &amp;lt;- read_excel(&amp;quot;my_file.xlsx&amp;quot;, sheet = &amp;quot;data&amp;quot;)# Specify sheet by its indexmy_data &amp;lt;- read_excel(&amp;quot;my_file.xlsx&amp;quot;, sheet = 2)方法三：
-安装‘xlsx’包输入以下代码：library(&amp;quot;xlsx&amp;quot;)my_data &amp;lt;- read.xlsx(file.choose(), 1) # read first sheet</description>
-    </item>
-    
-    <item>
-      <title>差异表达分析的一些记录</title>
-      <link>/post/2020/10/21/%E5%B7%AE%E5%BC%82%E8%A1%A8%E8%BE%BE%E5%88%86%E6%9E%90%E7%9A%84%E4%B8%80%E4%BA%9B%E8%AE%B0%E5%BD%95/</link>
-      <pubDate>Wed, 21 Oct 2020 00:00:00 +0000</pubDate>
-      
-      <guid>/post/2020/10/21/%E5%B7%AE%E5%BC%82%E8%A1%A8%E8%BE%BE%E5%88%86%E6%9E%90%E7%9A%84%E4%B8%80%E4%BA%9B%E8%AE%B0%E5%BD%95/</guid>
-      <description>今天研究一下DESeq2包：Analyzing RNA-seq data with DESeq2
-输入应该为没有归一化过得counts数据，因为DESeq2在软件内部矫正了library的大小；又看了一下limma包，发现这个东西输入也是要求counts数据。</description>
-    </item>
-    
-    <item>
-      <title>每个人的快乐</title>
-      <link>/post/2020/10/20/%E6%AF%8F%E4%B8%AA%E4%BA%BA%E7%9A%84%E5%BF%AB%E4%B9%90/</link>
-      <pubDate>Tue, 20 Oct 2020 00:00:00 +0000</pubDate>
-      
-      <guid>/post/2020/10/20/%E6%AF%8F%E4%B8%AA%E4%BA%BA%E7%9A%84%E5%BF%AB%E4%B9%90/</guid>
-      <description>经过今天的思考人生，我发现每个人的快乐可能是不一样的，有的人运动就会获得快乐，有的人觉得钱多就有快乐，有的人可能觉得有爱自己的人就有快乐。
-就我所知，快乐无非就是多巴胺的分泌，也许每个人对于多巴胺的接收方式不同，所以才会导致这种现象。
-但我认为相同的是，人虽然是高智商物种，但仍然无法对自己的快乐加以控制。人一旦经历过更好玩更让你快乐的事，就会提高对快乐的阈值，这就解释了以下几个现象：
-人越成熟越笑不起来小时候觉得好吃的，长大了可能觉得不好吃了狗在吃过鸡肝以后不吃馒头了童年总是美好的……目前为止，我觉得我活着还是四个字：
-为了快乐！</description>
-    </item>
-    
-    <item>
-      <title>基础语法加进阶语法</title>
-      <link>/post/2020/10/02/%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95%E5%8A%A0%E8%BF%9B%E9%98%B6%E8%AF%AD%E6%B3%95/</link>
-      <pubDate>Fri, 02 Oct 2020 00:00:00 +0000</pubDate>
-      
-      <guid>/post/2020/10/02/%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95%E5%8A%A0%E8%BF%9B%E9%98%B6%E8%AF%AD%E6%B3%95/</guid>
-      <description>print(&amp;#39;hello,blogdown!&amp;#39;)开始练习水平线1
-水平线2
-水平线3
-插入冷嘉承的链接。
-快速链接或者邮箱链接 
-https://jiachengleng.netlify.app or amssljc@163.com
-参考格式的链接
-冷嘉承的个人主页
-利用20%代替链接中的空格
-表格
-吃的吃的吃的吃的吃的吃的玩的玩的玩的玩的玩的玩的玩的卤煮天坛火锅故宫用Markdown table generator更省事。
-if (i in 1:10){print(paste0(&amp;#39;I want&amp;#39;, i, &amp;#39; papers!&amp;#39;))}脚注
-发文章太难了吧。1
-转至开头
-这句话可能对于某些大牛来说是假的↩
-</description>
-    </item>
-    
-    <item>
-      <title>国庆快乐！！</title>
-      <link>/post/2020/10/01/%E5%9B%BD%E5%BA%86%E5%BF%AB%E4%B9%90/</link>
-      <pubDate>Thu, 01 Oct 2020 00:00:00 +0000</pubDate>
-      
-      <guid>/post/2020/10/01/%E5%9B%BD%E5%BA%86%E5%BF%AB%E4%B9%90/</guid>
-      <description>由于前几天忙着做讨论班的PPT，趁着国庆的尾巴，今天才有空学习一下Markdown的语法。
-换行需要两个或者以上的空格
-左对齐
-如果需要另起一段，则需要按两次回车
-不仅如此，你还可以使用&amp;lt;br&amp;gt;
-来换行
-**双星号夹住**粗体
-句中的粗体。
-*单型号夹住*斜体
-***三个星号自然就是***粗斜体
-添加一个引用模块
-再加一个
-连起来
-加一行之后再加一个大于号，获得块中块
-Title添加项目编号再来一个总结
-有序列表
-吃
-烤鱼，火锅，麻辣烫
-喝
-玩
-乐
-无序列表
-国庆快乐吗？添加代码
-打开文件
-输入以下命令：
-if (I is &amp;#39;happy&amp;#39;){print(&amp;#39;I am happy&amp;#39;)}结束（4个Tab或者8个空格）
-添加图片
-第一步插入图片：元素无敌</description>
-    </item>
-    
-    <item>
-      <title>第二天继续探索</title>
-      <link>/post/2020/09/27/%E7%AC%AC%E4%BA%8C%E5%A4%A9%E7%BB%A7%E7%BB%AD%E6%8E%A2%E7%B4%A2/</link>
-      <pubDate>Sun, 27 Sep 2020 00:00:00 +0000</pubDate>
-      
-      <guid>/post/2020/09/27/%E7%AC%AC%E4%BA%8C%E5%A4%A9%E7%BB%A7%E7%BB%AD%E6%8E%A2%E7%B4%A2/</guid>
-      <description>第二天目标：完成Netlify和github库的链接，实现自动上传本地文件。还未完成:) yeah！12:23
-图片咋不能改大小了？可以嗷，基本搞定了，yeah！
-仍在继续尝试，用脚本文件试试。。。
-成功了？！14:23
-我再试一下！？？？14:29
-明白了必须render一下才能个更改！14:33，今日目标完成，继续搞我的讨论班PPT了
-明天计划学一下blogdown的语法，看看添加一些新的元素</description>
+      <description> 方法一：
+打开excel，将你要导入的数据复制到剪切板(‘clipboard’) 输入以下R代码（我惊了！！还能这么操作！）  my_data &amp;lt;- read.table(file = &amp;quot;clipboard&amp;quot;, sep = &amp;quot;\t&amp;quot;, header=TRUE) 方法二：
+安装‘readxl’包 输入以下代码（比较常规）：  # Loading library(&amp;quot;readxl&amp;quot;) # xls files my_data &amp;lt;- read_excel(&amp;quot;my_file.xls&amp;quot;) # xlsx files my_data &amp;lt;- read_excel(&amp;quot;my_file.xlsx&amp;quot;) 同时可以指定sheet：
+# Specify sheet by its name my_data &amp;lt;- read_excel(&amp;quot;my_file.xlsx&amp;quot;, sheet = &amp;quot;data&amp;quot;) # Specify sheet by its index my_data &amp;lt;- read_excel(&amp;quot;my_file.xlsx&amp;quot;, sheet = 2) 方法三：
+安装‘xlsx’包 输入以下代码：  library(&amp;quot;xlsx&amp;quot;) my_data &amp;lt;- read.xlsx(file.choose(), 1) # read first sheet </description>
     </item>
     
     <item>

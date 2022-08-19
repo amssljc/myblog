@@ -13,10 +13,10 @@
       <pubDate>Fri, 20 Nov 2020 00:00:00 +0000</pubDate>
       
       <guid>/post/2020/11/20/automation-of-cytoscape-using-r/</guid>
-      <description>Preface经过我的一番摸索，终于搞明白了，这个R包本身说明并不详细，具体参数基本全靠猜，当然我还参考了Cytoscape automation in R using Rcy3(仅仅参考了一行代码)，累死我了- -！
-1. 安装R包“RCy3”if (!requireNamespace(&amp;quot;BiocManager&amp;quot;, quietly = TRUE))install.packages(&amp;quot;BiocManager&amp;quot;)BiocManager::install(&amp;quot;RCy3&amp;quot;)2. 调用函数cyrestPOST本文以Cytoscape中的Reactome FI Apps中的“Gene Set/Mutation Analysis”功能生成网络图，并导出为csv文件为例具体讲解自动化(Automation)流程。
+      <description>Preface 经过我的一番摸索，终于搞明白了，这个R包本身说明并不详细，具体参数基本全靠猜，当然我还参考了Cytoscape automation in R using Rcy3(仅仅参考了一行代码)，累死我了- -！
+1. 安装R包“RCy3” if (!requireNamespace(&amp;quot;BiocManager&amp;quot;, quietly = TRUE)) install.packages(&amp;quot;BiocManager&amp;quot;) BiocManager::install(&amp;quot;RCy3&amp;quot;)  2. 调用函数cyrestPOST 本文以Cytoscape中的Reactome FI Apps中的“Gene Set/Mutation Analysis”功能生成网络图，并导出为csv文件为例具体讲解自动化(Automation)流程。
 废话不多说，直接导入下面代码，并修改相应的path
-library(RCy3)filename.input &amp;lt;- &amp;#39;path.of.your.input.file&amp;#39;filename.output &amp;lt;- &amp;#39;path.of.your.output.file&amp;#39;)body.reactome &amp;lt;- list(fiVersion = &amp;#39;2019&amp;#39;, # Reactome FI Networks Version, 不同版本结果不同format = &amp;#39;GeneSet&amp;#39;, # Specify formatfile = filename.input, # 对应的是GUI中的 Choose data file：enteredGenes = &amp;#39;null&amp;#39;, # 对应的是GUI中的 Or enter gene set：chooseHomoGenes = FALSE,useLinkers = FALSE, # 对应的是GUI中的 Use linker genes：showUnlinked = FALSE, # 对应的是GUI中的 Show genes not linked to others：fetchFIAnnotations = TRUE, # 对应的是GUI中的 Fetch FI annotations：sampleCutoffValue = &amp;#39;4&amp;#39;)body.</description>
+library(RCy3) filename.input &amp;lt;- &amp;#39;path.of.your.input.file&amp;#39; filename.output &amp;lt;- &amp;#39;path.of.your.output.file&amp;#39; ) body.reactome &amp;lt;- list( fiVersion = &amp;#39;2019&amp;#39;, # Reactome FI Networks Version, 不同版本结果不同 format = &amp;#39;GeneSet&amp;#39;, # Specify format file = filename.input, # 对应的是GUI中的 Choose data file： enteredGenes = &amp;#39;null&amp;#39;, # 对应的是GUI中的 Or enter gene set： chooseHomoGenes = FALSE, useLinkers = FALSE, # 对应的是GUI中的 Use linker genes： showUnlinked = FALSE, # 对应的是GUI中的 Show genes not linked to others： fetchFIAnnotations = TRUE, # 对应的是GUI中的 Fetch FI annotations： sampleCutoffValue = &amp;#39;4&amp;#39; ) body.</description>
     </item>
     
     <item>
@@ -26,19 +26,19 @@ library(RCy3)filename.input &amp;lt;- &amp;#39;path.of.your.input.file&amp;#39;
       
       <guid>/post/2020/11/02/%E5%88%A9%E7%94%A8tcga%E7%9A%84mrna%E8%A1%A8%E8%BE%BE%E6%95%B0%E6%8D%AE%E5%81%9A%E7%94%9F%E5%AD%98%E5%88%86%E6%9E%90/</guid>
       <description>数据下载
-可以从各大网站寻找方法，本文重点在于得到数据后的分析。这一步之后应到得到的数据有：基因表达数据
+可以从各大网站寻找方法，本文重点在于得到数据后的分析。 这一步之后应到得到的数据有：  基因表达数据
 这一步需要用程序批量处理整合成表达矩阵，并且注意区分正常样本和病变样本。
-clinical临床数据
+ clinical临床数据
 数据结构如图：
-数据整理
+  数据整理
 这一步我们需要至少从中提取出4个变量提供给下游分析，分别是病例ID，生存状态，以及与生存时间相关的两个变量。具体变量的解释可以查看官方文档。
-clinical.data &amp;lt;- read.csv(&amp;#39;../Realdata/clinical.tsv&amp;#39;, sep = &amp;#39;\t&amp;#39;)clinical.data.select &amp;lt;-clinical.data[, c(&amp;#39;case_submitter_id&amp;#39;,&amp;#39;vital_status&amp;#39;,&amp;#39;days_to_death&amp;#39;,&amp;#39;days_to_last_follow_up&amp;#39;)]病例ID用来和表达数据一一对应，并且同时得到目标基因的表达水平，高于均值为高表达，记为1，反之0；
-生存状态用判断是否为删失数据，记censored=1，dead=2；
-生存时间就是横轴信息；
+   clinical.data &amp;lt;- read.csv(&amp;#39;../Realdata/clinical.tsv&amp;#39;, sep = &amp;#39;\t&amp;#39;) clinical.data.select &amp;lt;- clinical.data[, c(&amp;#39;case_submitter_id&amp;#39;, &amp;#39;vital_status&amp;#39;, &amp;#39;days_to_death&amp;#39;, &amp;#39;days_to_last_follow_up&amp;#39;)]  病例ID用来和表达数据一一对应，并且同时得到目标基因的表达水平，高于均值为高表达，记为1，反之0；
+ 生存状态用判断是否为删失数据，记censored=1，dead=2；
+ 生存时间就是横轴信息；
 得到的数据结构如图：
 其中case_id应该为TCGA的ID。
-生存分析
-library(&amp;#39;survival&amp;#39;)library(&amp;#39;survminer&amp;#39;)fit &amp;lt;- survfit(Surv(time, status) ~ expression_level , data = clinical.data.select)ggsurvplot(fit,pval = TRUE, pval.method = TRUE,surv.median.line = &amp;quot;hv&amp;quot;, # Specify median survivalggtheme = theme_bw(), # Change ggplot2 themepalette = c(&amp;quot;#E7B800&amp;quot;, &amp;quot;#2E9FDF&amp;quot;) ,legend.</description>
+  生存分析
+  library(&amp;#39;survival&amp;#39;) library(&amp;#39;survminer&amp;#39;) fit &amp;lt;- survfit(Surv(time, status) ~ expression_level , data = clinical.data.select) ggsurvplot(fit, pval = TRUE, pval.method = TRUE, surv.median.line = &amp;quot;hv&amp;quot;, # Specify median survival ggtheme = theme_bw(), # Change ggplot2 theme palette = c(&amp;quot;#E7B800&amp;quot;, &amp;quot;#2E9FDF&amp;quot;) , legend.</description>
     </item>
     
     <item>
@@ -48,19 +48,9 @@ library(RCy3)filename.input &amp;lt;- &amp;#39;path.of.your.input.file&amp;#39;
       
       <guid>/post/2020/10/22/ensembl-id-%E7%9A%84%E8%A7%A3%E9%87%8A/</guid>
       <description>Ensembl ID 的解释：
-For example ENSMUSG00000017167.6. From this we can see that it’s an Ensembl ID (ENS), from mouse (MUS), it’s a gene (G) and it’s on its sixth version (.6).
-ENSGR 的解释：
-The Ensembl ids, by convention, are made of a species index (“ENS” for human and “ENSMUS” for mouse) followed by a feature type indicator (“G” for gene, “T” for transcript, “E” for exon, “P” for translation) and an 11-number figure.</description>
-    </item>
-    
-    <item>
-      <title>差异表达分析的一些记录</title>
-      <link>/post/2020/10/21/%E5%B7%AE%E5%BC%82%E8%A1%A8%E8%BE%BE%E5%88%86%E6%9E%90%E7%9A%84%E4%B8%80%E4%BA%9B%E8%AE%B0%E5%BD%95/</link>
-      <pubDate>Wed, 21 Oct 2020 00:00:00 +0000</pubDate>
-      
-      <guid>/post/2020/10/21/%E5%B7%AE%E5%BC%82%E8%A1%A8%E8%BE%BE%E5%88%86%E6%9E%90%E7%9A%84%E4%B8%80%E4%BA%9B%E8%AE%B0%E5%BD%95/</guid>
-      <description>今天研究一下DESeq2包：Analyzing RNA-seq data with DESeq2
-输入应该为没有归一化过得counts数据，因为DESeq2在软件内部矫正了library的大小；又看了一下limma包，发现这个东西输入也是要求counts数据。</description>
+ For example ENSMUSG00000017167.6. From this we can see that it’s an Ensembl ID (ENS), from mouse (MUS), it’s a gene (G) and it’s on its sixth version (.6).
+ ENSGR 的解释：
+ The Ensembl ids, by convention, are made of a species index (“ENS” for human and “ENSMUS” for mouse) followed by a feature type indicator (“G” for gene, “T” for transcript, “E” for exon, “P” for translation) and an 11-number figure.</description>
     </item>
     
   </channel>

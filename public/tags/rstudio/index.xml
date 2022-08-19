@@ -13,10 +13,10 @@
       <pubDate>Fri, 17 Dec 2021 00:00:00 +0000</pubDate>
       
       <guid>/post/2021/12/17/seurat-node-stack-overflow/</guid>
-      <description>当我运行以下代码时:
-seurat.anchors &amp;lt;- FindIntegrationAnchors(object.list = seurat_list, anchor.features = features,reference = 10)seurat.intergrated &amp;lt;- IntegrateData(anchorset = seurat.anchors)会发生错误:
-Finding integration vector weightsError: node stack overflowError during wrapup: node stack overflowError: no more error handlers available (recursive errors?); invoking &amp;#39;abort&amp;#39; restart这似乎是由于引用了Rfast包，总结如下解决方案：
-在所有Find Nearest Neighbor 的方法中将设置 nn.method = &#39;rann&#39;;重启R, unloadNamespace(&#39;Rfast&#39;).</description>
+      <description>  当我运行以下代码时:
+seurat.anchors &amp;lt;- FindIntegrationAnchors(object.list = seurat_list, anchor.features = features,reference = 10) seurat.intergrated &amp;lt;- IntegrateData(anchorset = seurat.anchors) 会发生错误:
+Finding integration vector weights Error: node stack overflow Error during wrapup: node stack overflow Error: no more error handlers available (recursive errors?); invoking &amp;#39;abort&amp;#39; restart 这似乎是由于引用了Rfast包，总结如下解决方案：
+在所有Find Nearest Neighbor 的方法中将设置 nn.method = &#39;rann&#39;; 重启R, unloadNamespace(&#39;Rfast&#39;).  </description>
     </item>
     
     <item>
@@ -26,9 +26,9 @@ Finding integration vector weightsError: node stack overflowError during wrapu
       
       <guid>/post/2020/11/28/rstudio%E6%9B%B4%E6%94%B9%E5%85%89%E6%A0%87%E9%A2%9C%E8%89%B2/</guid>
       <description>打开
-Yourpath2Rstudio\RStudio\resources\themes\yourtheme.rstheme
-更改以下代码的颜色部分即可。
-.ace_cursor,.ace_string.ace_regexp {color: #f5999c #光标颜色}虽然格式是.rstheme,但是是用css的编码方式编写的。</description>
+ Yourpath2Rstudio\RStudio\resources\themes\yourtheme.rstheme
+ 更改以下代码的颜色部分即可。
+.ace_cursor, .ace_string.ace_regexp { color: #f5999c #光标颜色 } 虽然格式是.rstheme,但是是用css的编码方式编写的。</description>
     </item>
     
   </channel>

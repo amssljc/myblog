@@ -14,7 +14,7 @@
       
       <guid>/post/2021/06/08/using-pytorch-to-solve-optimization-problem/</guid>
       <description>利用pytorch求解最优化问题，可以将最优化问题的目标函数作为Loss进行backward, 所需要求解的最优解设置为YourDeepModel的参数进行更新.
-import torchfrom torch.optim import SGD, Adam, ASGD, LBFGSfrom torch.nn import MSELoss# define your torch modelclass yourDeepModel(torch.nn.Module):def __init__(self, args):super(yourDeepModel, self).__init__()self.x = torch.nn.Parameter(torch.rand(x_dims))passdef forward(self):return # initializationmodel = yourDeepModel()optimizer = LBFGS(model.parameters(), lr=.01)epoch = 1000model.train()for i in range(epoch):def closure():optimizer.zero_grad()optim_value = model()optim_value.backward()return optim_valueoptimizer.step(closure)if i % 10 == 0:print(f&amp;quot;optim value:{closure().item()}&amp;quot;)# print your trainable variableprint(f&amp;quot;optim solution:{model.</description>
+import torch from torch.optim import SGD, Adam, ASGD, LBFGS from torch.nn import MSELoss # define your torch model class yourDeepModel(torch.nn.Module): def __init__(self, args): super(yourDeepModel, self).__init__() self.x = torch.nn.Parameter(torch.rand(x_dims)) pass def forward(self): return # initialization model = yourDeepModel() optimizer = LBFGS(model.parameters(), lr=.01) epoch = 1000 model.train() for i in range(epoch): def closure(): optimizer.zero_grad() optim_value = model() optim_value.backward() return optim_value optimizer.step(closure) if i % 10 == 0: print(f&amp;quot;optim value:{closure().item()}&amp;quot;) # print your trainable variable print(f&amp;quot;optim solution:{model.</description>
     </item>
     
   </channel>

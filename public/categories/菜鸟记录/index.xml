@@ -22,10 +22,10 @@
       <pubDate>Fri, 17 Dec 2021 00:00:00 +0000</pubDate>
       
       <guid>/post/2021/12/17/seurat-node-stack-overflow/</guid>
-      <description>当我运行以下代码时:
-seurat.anchors &amp;lt;- FindIntegrationAnchors(object.list = seurat_list, anchor.features = features,reference = 10)seurat.intergrated &amp;lt;- IntegrateData(anchorset = seurat.anchors)会发生错误:
-Finding integration vector weightsError: node stack overflowError during wrapup: node stack overflowError: no more error handlers available (recursive errors?); invoking &amp;#39;abort&amp;#39; restart这似乎是由于引用了Rfast包，总结如下解决方案：
-在所有Find Nearest Neighbor 的方法中将设置 nn.method = &#39;rann&#39;;重启R, unloadNamespace(&#39;Rfast&#39;).</description>
+      <description>  当我运行以下代码时:
+seurat.anchors &amp;lt;- FindIntegrationAnchors(object.list = seurat_list, anchor.features = features,reference = 10) seurat.intergrated &amp;lt;- IntegrateData(anchorset = seurat.anchors) 会发生错误:
+Finding integration vector weights Error: node stack overflow Error during wrapup: node stack overflow Error: no more error handlers available (recursive errors?); invoking &amp;#39;abort&amp;#39; restart 这似乎是由于引用了Rfast包，总结如下解决方案：
+在所有Find Nearest Neighbor 的方法中将设置 nn.method = &#39;rann&#39;; 重启R, unloadNamespace(&#39;Rfast&#39;).  </description>
     </item>
     
     <item>
@@ -35,7 +35,7 @@ Finding integration vector weightsError: node stack overflowError during wrapu
       
       <guid>/post/2021/06/13/%E8%87%AA%E5%AE%9A%E4%B9%89sklearn-estimator%E4%BB%A5%E4%BD%BF%E7%94%A8gridsearch-cv/</guid>
       <description>参考以下链接：
-Developing scikit-learn estimatorsGridsearch CVScoring functionfrom sklearn.model_selection import cross_val_score, GridSearchCVfrom sklearn.metrics import make_scorerfrom sklearn.utils.extmath import fast_logdetfrom sklearn.base import BaseEstimatorclass JointGraphicalLasso(BaseEstimator):def __init__(self,lambda1=0.1,lambda2=0.1):import rpy2import osos.environ[&amp;#39;R_HOME&amp;#39;] = &amp;quot;C:/PROGRA~1/R/R-3.5.1&amp;quot;from rpy2.robjects.packages import importrimport rpy2.robjects.numpy2rirpy2.robjects.numpy2ri.activate()self.JGL = importr(&amp;#39;JGL&amp;#39;)self.lambda1 = lambda1self.lambda2 = lambda2def fit(self, X:np.ndarray, y=None):# assert (self.lambda1 &amp;gt;= 0 and self.lambda2 &amp;gt;= 0), &amp;quot;lambda1 and lambda2 should be &amp;gt; 0.</description>
+ Developing scikit-learn estimators Gridsearch CV Scoring function  from sklearn.model_selection import cross_val_score, GridSearchCV from sklearn.metrics import make_scorer from sklearn.utils.extmath import fast_logdet from sklearn.base import BaseEstimator class JointGraphicalLasso(BaseEstimator): def __init__(self,lambda1=0.1,lambda2=0.1): import rpy2 import os os.environ[&amp;#39;R_HOME&amp;#39;] = &amp;quot;C:/PROGRA~1/R/R-3.5.1&amp;quot; from rpy2.robjects.packages import importr import rpy2.robjects.numpy2ri rpy2.robjects.numpy2ri.activate() self.JGL = importr(&amp;#39;JGL&amp;#39;) self.lambda1 = lambda1 self.lambda2 = lambda2 def fit(self, X:np.ndarray, y=None): # assert (self.lambda1 &amp;gt;= 0 and self.lambda2 &amp;gt;= 0), &amp;quot;lambda1 and lambda2 should be &amp;gt; 0.</description>
     </item>
     
     <item>
@@ -44,7 +44,7 @@ Finding integration vector weightsError: node stack overflowError during wrapu
       <pubDate>Wed, 09 Jun 2021 00:00:00 +0000</pubDate>
       
       <guid>/post/2021/06/09/conda-enviroment-sharing/</guid>
-      <description>First, create a .yml file from your source machine.conda env export &amp;gt; environment.ymlCopy it to your target machine.create your environment using .yml file.conda env create -f environment.yml</description>
+      <description> First, create a .yml file from your source machine.  conda env export &amp;gt; environment.yml Copy it to your target machine. create your environment using .yml file.  conda env create -f environment.yml  </description>
     </item>
     
     <item>
@@ -54,7 +54,7 @@ Finding integration vector weightsError: node stack overflowError during wrapu
       
       <guid>/post/2021/06/08/using-pytorch-to-solve-optimization-problem/</guid>
       <description>利用pytorch求解最优化问题，可以将最优化问题的目标函数作为Loss进行backward, 所需要求解的最优解设置为YourDeepModel的参数进行更新.
-import torchfrom torch.optim import SGD, Adam, ASGD, LBFGSfrom torch.nn import MSELoss# define your torch modelclass yourDeepModel(torch.nn.Module):def __init__(self, args):super(yourDeepModel, self).__init__()self.x = torch.nn.Parameter(torch.rand(x_dims))passdef forward(self):return # initializationmodel = yourDeepModel()optimizer = LBFGS(model.parameters(), lr=.01)epoch = 1000model.train()for i in range(epoch):def closure():optimizer.zero_grad()optim_value = model()optim_value.backward()return optim_valueoptimizer.step(closure)if i % 10 == 0:print(f&amp;quot;optim value:{closure().item()}&amp;quot;)# print your trainable variableprint(f&amp;quot;optim solution:{model.</description>
+import torch from torch.optim import SGD, Adam, ASGD, LBFGS from torch.nn import MSELoss # define your torch model class yourDeepModel(torch.nn.Module): def __init__(self, args): super(yourDeepModel, self).__init__() self.x = torch.nn.Parameter(torch.rand(x_dims)) pass def forward(self): return # initialization model = yourDeepModel() optimizer = LBFGS(model.parameters(), lr=.01) epoch = 1000 model.train() for i in range(epoch): def closure(): optimizer.zero_grad() optim_value = model() optim_value.backward() return optim_value optimizer.step(closure) if i % 10 == 0: print(f&amp;quot;optim value:{closure().item()}&amp;quot;) # print your trainable variable print(f&amp;quot;optim solution:{model.</description>
     </item>
     
     <item>
@@ -63,47 +63,8 @@ import torchfrom torch.optim import SGD, Adam, ASGD, LBFGSfrom torch.nn import
       <pubDate>Tue, 17 Nov 2020 00:00:00 +0000</pubDate>
       
       <guid>/post/2020/11/17/%E8%83%B8%E9%83%A8%E8%AE%AD%E7%BB%83%E8%AE%B0%E5%BD%95/</guid>
-      <description>胸部训练平板卧推 空杆 20kg*20 + 25kg*12 + 30kg*12 +30kg*6+25kg* 6 = 1390kg上斜卧推 25kg*[12 + 10 + (6+4)] = 550kg哑铃夹胸 16kg*12 + 20kg*(2*12 + 10) = 872kg蝴蝶机夹胸 10kg*4*12 = 480kg游泳 12*25m = 300m训练总容量：1390 + 550 + 872 + 480 = 3292kg
-</description>
-    </item>
-    
-    <item>
-      <title>基础语法加进阶语法</title>
-      <link>/post/2020/10/02/%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95%E5%8A%A0%E8%BF%9B%E9%98%B6%E8%AF%AD%E6%B3%95/</link>
-      <pubDate>Fri, 02 Oct 2020 00:00:00 +0000</pubDate>
-      
-      <guid>/post/2020/10/02/%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95%E5%8A%A0%E8%BF%9B%E9%98%B6%E8%AF%AD%E6%B3%95/</guid>
-      <description>print(&amp;#39;hello,blogdown!&amp;#39;)开始练习水平线1
-水平线2
-水平线3
-插入冷嘉承的链接。
-快速链接或者邮箱链接 
-https://jiachengleng.netlify.app or amssljc@163.com
-参考格式的链接
-冷嘉承的个人主页
-利用20%代替链接中的空格
-表格
-吃的吃的吃的吃的吃的吃的玩的玩的玩的玩的玩的玩的玩的卤煮天坛火锅故宫用Markdown table generator更省事。
-if (i in 1:10){print(paste0(&amp;#39;I want&amp;#39;, i, &amp;#39; papers!&amp;#39;))}脚注
-发文章太难了吧。1
-转至开头
-这句话可能对于某些大牛来说是假的↩
-</description>
-    </item>
-    
-    <item>
-      <title>第二天继续探索</title>
-      <link>/post/2020/09/27/%E7%AC%AC%E4%BA%8C%E5%A4%A9%E7%BB%A7%E7%BB%AD%E6%8E%A2%E7%B4%A2/</link>
-      <pubDate>Sun, 27 Sep 2020 00:00:00 +0000</pubDate>
-      
-      <guid>/post/2020/09/27/%E7%AC%AC%E4%BA%8C%E5%A4%A9%E7%BB%A7%E7%BB%AD%E6%8E%A2%E7%B4%A2/</guid>
-      <description>第二天目标：完成Netlify和github库的链接，实现自动上传本地文件。还未完成:) yeah！12:23
-图片咋不能改大小了？可以嗷，基本搞定了，yeah！
-仍在继续尝试，用脚本文件试试。。。
-成功了？！14:23
-我再试一下！？？？14:29
-明白了必须render一下才能个更改！14:33，今日目标完成，继续搞我的讨论班PPT了
-明天计划学一下blogdown的语法，看看添加一些新的元素</description>
+      <description>  胸部训练  平板卧推 空杆 20kg*20 + 25kg*12 + 30kg*12 +30kg*6+25kg* 6 = 1390kg 上斜卧推 25kg*[12 + 10 + (6+4)] = 550kg 哑铃夹胸 16kg*12 + 20kg*(2*12 + 10) = 872kg 蝴蝶机夹胸 10kg*4*12 = 480kg 游泳 12*25m = 300m  训练总容量：1390 + 550 + 872 + 480 = 3292kg
+ </description>
     </item>
     
   </channel>

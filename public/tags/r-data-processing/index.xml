@@ -22,11 +22,11 @@
       <pubDate>Thu, 22 Oct 2020 00:00:00 +0000</pubDate>
       
       <guid>/post/2020/10/22/%E5%B0%86excel%E6%95%B0%E6%8D%AE%E5%AF%BC%E5%85%A5r/</guid>
-      <description>方法一：
-打开excel，将你要导入的数据复制到剪切板(‘clipboard’)输入以下R代码（我惊了！！还能这么操作！）my_data &amp;lt;- read.table(file = &amp;quot;clipboard&amp;quot;, sep = &amp;quot;\t&amp;quot;, header=TRUE)方法二：
-安装‘readxl’包输入以下代码（比较常规）：# Loadinglibrary(&amp;quot;readxl&amp;quot;)# xls filesmy_data &amp;lt;- read_excel(&amp;quot;my_file.xls&amp;quot;)# xlsx filesmy_data &amp;lt;- read_excel(&amp;quot;my_file.xlsx&amp;quot;)同时可以指定sheet：
-# Specify sheet by its namemy_data &amp;lt;- read_excel(&amp;quot;my_file.xlsx&amp;quot;, sheet = &amp;quot;data&amp;quot;)# Specify sheet by its indexmy_data &amp;lt;- read_excel(&amp;quot;my_file.xlsx&amp;quot;, sheet = 2)方法三：
-安装‘xlsx’包输入以下代码：library(&amp;quot;xlsx&amp;quot;)my_data &amp;lt;- read.xlsx(file.choose(), 1) # read first sheet</description>
+      <description> 方法一：
+打开excel，将你要导入的数据复制到剪切板(‘clipboard’) 输入以下R代码（我惊了！！还能这么操作！）  my_data &amp;lt;- read.table(file = &amp;quot;clipboard&amp;quot;, sep = &amp;quot;\t&amp;quot;, header=TRUE) 方法二：
+安装‘readxl’包 输入以下代码（比较常规）：  # Loading library(&amp;quot;readxl&amp;quot;) # xls files my_data &amp;lt;- read_excel(&amp;quot;my_file.xls&amp;quot;) # xlsx files my_data &amp;lt;- read_excel(&amp;quot;my_file.xlsx&amp;quot;) 同时可以指定sheet：
+# Specify sheet by its name my_data &amp;lt;- read_excel(&amp;quot;my_file.xlsx&amp;quot;, sheet = &amp;quot;data&amp;quot;) # Specify sheet by its index my_data &amp;lt;- read_excel(&amp;quot;my_file.xlsx&amp;quot;, sheet = 2) 方法三：
+安装‘xlsx’包 输入以下代码：  library(&amp;quot;xlsx&amp;quot;) my_data &amp;lt;- read.xlsx(file.choose(), 1) # read first sheet </description>
     </item>
     
   </channel>
